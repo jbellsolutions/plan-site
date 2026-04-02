@@ -1,0 +1,2933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Beauty Business — Full Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    z-index: 100;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c9a0dc, #f7c6d0, #fdd6a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 40px 60px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+    padding-top: 20px;
+  }
+  .header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #c9a0dc, #f7c6d0, #fdd6a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header .context {
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-size: 15px;
+    color: #777;
+    line-height: 1.7;
+  }
+  .header .context strong { color: #bbb; }
+
+  /* Section */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .purple { color: #c9a0dc; }
+  .pink { color: #f7c6d0; }
+  .gold { color: #fdd6a0; }
+  .green { color: #a0dcc8; }
+  .blue { color: #a0befd; }
+
+  /* Cards */
+  .card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .card p, .card li {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.7;
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .card li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .card li:last-child { border-bottom: none; }
+  .card .icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-top: 2px;
+    font-weight: 700;
+  }
+  .icon-purple { background: rgba(201,160,220,0.15); color: #c9a0dc; }
+  .icon-pink { background: rgba(247,198,208,0.15); color: #f7c6d0; }
+  .icon-gold { background: rgba(253,214,160,0.15); color: #fdd6a0; }
+  .icon-green { background: rgba(160,220,200,0.15); color: #a0dcc8; }
+  .icon-blue { background: rgba(160,190,253,0.15); color: #a0befd; }
+
+  /* Grid layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Stat cards */
+  .stat-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .stat-sub {
+    font-size: 12px;
+    color: #555;
+    margin-top: 4px;
+  }
+
+  /* Role cards */
+  .role-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .role-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .role-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    margin-bottom: 12px;
+  }
+  .role-card p {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  /* Niche grid */
+  .niche-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .niche-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ddd;
+  }
+  .niche-card .niche-detail {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .niche-card .margin-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .margin-high { background: rgba(160,220,200,0.15); color: #a0dcc8; }
+  .margin-med { background: rgba(253,214,160,0.15); color: #fdd6a0; }
+
+  /* Funnel */
+  .funnel {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+  .funnel-step {
+    text-align: center;
+    flex: 1;
+    min-width: 130px;
+    max-width: 180px;
+  }
+  .funnel-step .circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 22px;
+  }
+  .funnel-step:nth-child(1) .circle { background: rgba(201,160,220,0.2); border: 2px solid #c9a0dc; }
+  .funnel-step:nth-child(3) .circle { background: rgba(247,198,208,0.2); border: 2px solid #f7c6d0; }
+  .funnel-step:nth-child(5) .circle { background: rgba(253,214,160,0.2); border: 2px solid #fdd6a0; }
+  .funnel-step:nth-child(7) .circle { background: rgba(160,220,200,0.2); border: 2px solid #a0dcc8; }
+  .funnel-step:nth-child(9) .circle { background: rgba(160,190,253,0.2); border: 2px solid #a0befd; }
+  .funnel-step .label { font-size: 13px; font-weight: 600; color: #ddd; margin-bottom: 4px; }
+  .funnel-step .sublabel { font-size: 11px; color: #777; line-height: 1.4; }
+  .funnel-arrow { font-size: 20px; color: #333; flex-shrink: 0; margin: 0 4px; }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .tl-item {
+    position: relative;
+    padding-left: 18px;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 20px 20px 20px 22px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 16px 0 0 16px;
+  }
+  .tl-item.tl-purple::before { background: #c9a0dc; }
+  .tl-item.tl-pink::before { background: #f7c6d0; }
+  .tl-item.tl-gold::before { background: #fdd6a0; }
+  .tl-item.tl-green::before { background: #a0dcc8; }
+  .tl-item.tl-blue::before { background: #a0befd; }
+  .tl-item .tl-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .tl-item.tl-purple .tl-label { color: #c9a0dc; }
+  .tl-item.tl-pink .tl-label { color: #f7c6d0; }
+  .tl-item.tl-gold .tl-label { color: #fdd6a0; }
+  .tl-item.tl-green .tl-label { color: #a0dcc8; }
+  .tl-item.tl-blue .tl-label { color: #a0befd; }
+  .tl-item p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+  }
+  .tl-item ul {
+    list-style: none;
+    padding: 0;
+  }
+  .tl-item li {
+    font-size: 13px;
+    color: #888;
+    padding: 3px 0;
+    padding-left: 18px;
+    position: relative;
+  }
+  .tl-item li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #444;
+    font-weight: 700;
+  }
+
+  /* Table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #555;
+    padding: 8px 12px;
+    border-bottom: 1px solid #222;
+  }
+  .data-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #bbb;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 13px;
+    color: #bbb;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.2s;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li:hover { background: rgba(255,255,255,0.02); border-radius: 6px; }
+  .checklist li.checked { opacity: 0.5; }
+  .checklist li.checked span:not(.check) { text-decoration: line-through; }
+  .check {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 12px;
+  }
+  .checklist li.checked .check {
+    background: rgba(160,220,200,0.2);
+    border-color: #a0dcc8;
+    color: #a0dcc8;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin-bottom: 16px;
+  }
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .progress-text {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .progress-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: #a0dcc8;
+  }
+  .progress-bar {
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #a0dcc8, #c9a0dc);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* Question inputs */
+  .question-input {
+    width: 100%;
+    background: #0e0e0e;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    margin-top: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .question-input:focus { border-color: #a0befd; }
+  .question-input::placeholder { color: #444; }
+  .question-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .question-item:last-child { border-bottom: none; }
+  .question-label {
+    font-size: 14px;
+    color: #bbb;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .question-saved {
+    font-size: 11px;
+    color: #a0dcc8;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .question-saved.show { opacity: 1; }
+
+  /* Notes */
+  .notes-area {
+    width: 100%;
+    min-height: 80px;
+    background: #0e0e0e;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s;
+    margin-top: 12px;
+  }
+  .notes-area:focus { border-color: #a0befd; }
+  .notes-area::placeholder { color: #444; }
+
+  /* Reset button */
+  .reset-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #666;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .reset-btn:hover { border-color: #f7c6d0; color: #f7c6d0; }
+
+  /* Checklist item notes */
+  .item-note-toggle {
+    font-size: 11px;
+    color: #444;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .item-note-toggle:hover { color: #a0befd; background: rgba(160,190,253,0.08); }
+  .item-note-toggle.has-note { color: #a0befd; }
+  .item-note-area {
+    display: none;
+    width: 100%;
+    margin-top: 8px;
+    padding-left: 32px;
+  }
+  .item-note-area.open { display: block; }
+  .item-note-input {
+    width: 100%;
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #ccc;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    outline: none;
+    resize: none;
+    min-height: 36px;
+    transition: border-color 0.2s;
+  }
+  .item-note-input:focus { border-color: #a0befd; }
+  .item-note-input::placeholder { color: #333; }
+  .checklist li { flex-wrap: wrap; }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    background: #111;
+    border-radius: 10px;
+    padding: 4px;
+    border: 1px solid #1a1a1a;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #aaa; }
+  .tab-btn.active {
+    background: #1a1a1a;
+    color: #fff;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Idea / Link list items */
+  .idea-list { list-style: none; padding: 0; margin-top: 12px; }
+  .idea-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #1a1a1a;
+    border-radius: 8px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .idea-item:hover { background: rgba(255,255,255,0.02); }
+  .idea-item.actioned { opacity: 0.45; }
+  .idea-item.actioned .idea-text { text-decoration: line-through; }
+  .idea-check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-top: 2px;
+    transition: all 0.2s;
+  }
+  .idea-item.actioned .idea-check {
+    background: rgba(160,220,200,0.2);
+    border-color: #a0dcc8;
+    color: #a0dcc8;
+  }
+  .idea-text {
+    flex: 1;
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.5;
+    min-width: 0;
+    word-wrap: break-word;
+  }
+  .idea-text[contenteditable="true"] {
+    outline: none;
+    background: rgba(160,190,253,0.05);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border: 1px solid rgba(160,190,253,0.2);
+  }
+  .idea-meta {
+    font-size: 10px;
+    color: #444;
+    margin-top: 2px;
+  }
+  .idea-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .idea-item:hover .idea-actions { opacity: 1; }
+  .idea-action-btn {
+    background: none;
+    border: 1px solid #222;
+    color: #555;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .idea-action-btn:hover { color: #aaa; border-color: #444; }
+  .idea-action-btn.del:hover { color: #f7c6d0; border-color: #f7c6d0; }
+  .idea-input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .idea-input {
+    flex: 1;
+    background: #0e0e0e;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .idea-input:focus { border-color: #a0befd; }
+  .idea-input::placeholder { color: #444; }
+  .idea-submit {
+    background: linear-gradient(135deg, #c9a0dc, #f7c6d0);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .idea-submit:hover { opacity: 0.85; }
+  .idea-who-select {
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 8px 10px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .idea-who-select option { background: #141414; }
+  .idea-tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tag-ashley { background: rgba(201,160,220,0.15); color: #c9a0dc; }
+  .tag-ellie { background: rgba(247,198,208,0.15); color: #f7c6d0; }
+  .tag-justin { background: rgba(253,214,160,0.15); color: #fdd6a0; }
+  .idea-empty {
+    text-align: center;
+    padding: 30px;
+    color: #333;
+    font-size: 13px;
+  }
+  .idea-count {
+    font-size: 11px;
+    color: #444;
+    margin-left: auto;
+  }
+
+  /* Content Agent pipeline */
+  .pipeline {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    margin: 20px 0;
+  }
+  .pipeline-stage {
+    flex: 1;
+    text-align: center;
+    padding: 20px 16px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    position: relative;
+  }
+  .pipeline-stage:first-child { border-radius: 12px 0 0 12px; }
+  .pipeline-stage:last-child { border-radius: 0 12px 12px 0; }
+  .pipeline-stage .stage-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 auto 8px;
+  }
+  .pipeline-stage:nth-child(1) .stage-num { background: rgba(201,160,220,0.2); color: #c9a0dc; }
+  .pipeline-stage:nth-child(2) .stage-num { background: rgba(247,198,208,0.2); color: #f7c6d0; }
+  .pipeline-stage:nth-child(3) .stage-num { background: rgba(160,220,200,0.2); color: #a0dcc8; }
+  .pipeline-stage h4 { font-size: 14px; font-weight: 700; color: #ddd; margin-bottom: 4px; }
+  .pipeline-stage p { font-size: 11px; color: #666; line-height: 1.4; }
+  .pipeline-arrow-v {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 18px;
+    padding: 0 2px;
+  }
+  .platform-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .platform-btn {
+    flex: 1;
+    padding: 14px 12px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .platform-btn:hover { border-color: #444; }
+  .platform-btn.selected { border-color: #c9a0dc; background: rgba(201,160,220,0.08); }
+  .platform-btn .plat-icon { font-size: 24px; margin-bottom: 4px; }
+  .platform-btn .plat-label { font-size: 12px; font-weight: 600; color: #888; }
+  .platform-btn.selected .plat-label { color: #c9a0dc; }
+  .post-type-wrap { margin-bottom: 16px; }
+  .post-type-wrap label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px; }
+  .post-type-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .post-chip {
+    padding: 6px 14px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .post-chip:hover { border-color: #555; color: #bbb; }
+  .post-chip.selected { border-color: #f7c6d0; color: #f7c6d0; background: rgba(247,198,208,0.08); }
+  .generate-context {
+    width: 100%;
+    background: #0e0e0e;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    resize: none;
+    min-height: 44px;
+    transition: border-color 0.2s;
+  }
+  .generate-context:focus { border-color: #c9a0dc; }
+  .generate-context::placeholder { color: #444; }
+  .generate-btn {
+    background: linear-gradient(135deg, #c9a0dc, #a0befd);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    color: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .generate-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .generate-btn:active { transform: translateY(0); }
+  .generate-btn.generating {
+    background: linear-gradient(135deg, #444, #555);
+    pointer-events: none;
+  }
+  .generated-output {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    display: none;
+  }
+  .generated-output.visible { display: block; animation: fadeIn 0.4s ease; }
+  .generated-output h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .draft-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .draft-tab {
+    padding: 6px 14px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .draft-tab.active { background: #1a1a1a; color: #fff; border-color: #333; }
+  .draft-tab .score { color: #a0dcc8; margin-left: 4px; }
+  .draft-body {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 16px;
+    background: #0e0e0e;
+    border-radius: 8px;
+    border: 1px solid #1a1a1a;
+    min-height: 100px;
+  }
+  .draft-scores {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .score-pill {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    color: #888;
+  }
+  .score-pill .sv { color: #a0dcc8; font-weight: 700; }
+  .gen-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .gen-action {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    border: none;
+  }
+  .gen-save { background: linear-gradient(135deg, #a0dcc8, #a0befd); color: #0a0a0a; }
+  .gen-save:hover { opacity: 0.85; }
+  .gen-copy { background: none; border: 1px solid #333; color: #888; }
+  .gen-copy:hover { border-color: #666; color: #ddd; }
+  .gen-regen { background: none; border: 1px solid #333; color: #888; }
+  .gen-regen:hover { border-color: #c9a0dc; color: #c9a0dc; }
+
+  /* Created content cards */
+  .content-piece {
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  .content-piece:hover { border-color: #282828; }
+  .content-piece.posted { opacity: 0.5; }
+  .content-piece-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .content-piece-type {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(201,160,220,0.15);
+    color: #c9a0dc;
+  }
+  .content-piece-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .status-draft { background: rgba(253,214,160,0.15); color: #fdd6a0; }
+  .status-ready { background: rgba(160,190,253,0.15); color: #a0befd; }
+  .status-posted { background: rgba(160,220,200,0.15); color: #a0dcc8; }
+  .content-piece-date {
+    font-size: 10px;
+    color: #444;
+    margin-left: auto;
+  }
+  .content-piece-body {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  .content-piece-body::-webkit-scrollbar { width: 3px; }
+  .content-piece-body::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  .content-piece-body[contenteditable="true"] {
+    outline: none;
+    background: rgba(160,190,253,0.03);
+    border-radius: 6px;
+    padding: 8px;
+    margin: -8px;
+    border: 1px solid rgba(160,190,253,0.15);
+    max-height: none;
+  }
+  .content-piece-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .cp-btn {
+    background: none;
+    border: 1px solid #222;
+    color: #555;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .cp-btn:hover { color: #aaa; border-color: #444; }
+  .cp-btn.cp-post { border-color: #a0dcc8; color: #a0dcc8; }
+  .cp-btn.cp-post:hover { background: rgba(160,220,200,0.1); }
+  .cp-btn.cp-del:hover { color: #f7c6d0; border-color: #f7c6d0; }
+  .content-empty {
+    text-align: center;
+    padding: 40px;
+    color: #333;
+    font-size: 13px;
+  }
+
+  /* Chat / Activity feed */
+  .chat-container {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .chat-messages {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  .chat-msg {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  .chat-msg:last-child { margin-bottom: 0; }
+  .chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .avatar-ashley { background: rgba(201,160,220,0.2); color: #c9a0dc; }
+  .avatar-ellie { background: rgba(247,198,208,0.2); color: #f7c6d0; }
+  .avatar-justin { background: rgba(253,214,160,0.2); color: #fdd6a0; }
+  .avatar-system { background: rgba(160,220,200,0.15); color: #a0dcc8; }
+  .chat-bubble {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 10px 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .chat-name {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .chat-text {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  .chat-time {
+    font-size: 10px;
+    color: #444;
+    margin-top: 4px;
+  }
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid #1a1a1a;
+    background: #111;
+  }
+  .chat-who {
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .chat-who option { background: #141414; }
+  .chat-text-input {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .chat-text-input:focus { border-color: #a0befd; }
+  .chat-text-input::placeholder { color: #444; }
+  .chat-send {
+    background: linear-gradient(135deg, #c9a0dc, #f7c6d0);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    color: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .chat-send:hover { opacity: 0.85; }
+  .chat-empty {
+    text-align: center;
+    padding: 40px;
+    color: #444;
+    font-size: 13px;
+  }
+
+  /* Agreement */
+  .agreement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .agreement-box {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .agreement-box h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #999;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .agreement-box p {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 48px 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #1a1a1a;
+  }
+  .footer p {
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page { padding: 80px 20px 40px; }
+    .header h1 { font-size: 32px; }
+    .grid-2, .grid-3, .grid-4, .timeline, .agreement-grid { grid-template-columns: 1fr; }
+    .nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .funnel { flex-direction: column; gap: 12px; }
+    .funnel-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-brand">The Beauty Business</div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#niches">Niches</a></li>
+    <li><a href="#gtm">GTM Engine</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+    <li><a href="#chat">Chat</a></li>
+    <li><a href="#content-studio">Content</a></li>
+    <li><a href="#agreement">Agreement</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>The Beauty Business</h1>
+    <p class="subtitle">Full Business Plan &bull; April 2026</p>
+    <p class="context">
+      <strong>Two products. One customer. One funnel.</strong><br>
+      A wholesale supply business + an AI-powered business operating system for beauty professionals.
+      Dropship model, no inventory. Cold email &rarr; podcast &rarr; wholesale &rarr; software &rarr; recurring residual.
+    </p>
+  </div>
+
+  <!-- ========== PRODUCTS ========== -->
+  <div class="section" id="products">
+    <div class="section-label">Part 1</div>
+    <h2 class="section-title purple">The Two Products</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="purple">Product 1 &mdash; Wholesale Site</h3>
+        <p style="color:#777; margin-bottom:14px;">Three-way partnership (Justin / Ashley / Ellie &mdash; 33/33/33). Equipment ($500&ndash;$2,500 machines) + wholesale-to-public supplies. Dropship model, no inventory.</p>
+        <ul>
+          <li><span class="icon icon-purple">1</span> Body contouring, hydrofacial, LED, HIFU, laser/IPL, cryo, EMS, microderm, pressotherapy machines</li>
+          <li><span class="icon icon-purple">2</span> Eyelashes, skincare, serums, gels, kits, blades &mdash; wholesale pricing direct to consumer</li>
+          <li><span class="icon icon-purple">3</span> Pro accounts with wholesale tier pricing + affiliate links for beauty professionals</li>
+          <li><span class="icon icon-purple">4</span> Dropship from Glownar, MyChway, Konmison, Advance-Esthetic, Petra</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="gold">Product 2 &mdash; Beauty Business OS</h3>
+        <p style="color:#777; margin-bottom:14px;">Justin's product (100% his revenue). $500&ndash;$1,000 setup + $200/month maintenance. Ashley &amp; Ellie can sell for 20% commission.</p>
+        <ul>
+          <li><span class="icon icon-gold">1</span> Claude Code repo: Install, say &ldquo;set me up,&rdquo; answer 10 questions, run your entire business</li>
+          <li><span class="icon icon-gold">2</span> COO Agent: Morning briefings, appointment prep, revenue tracking, daily reports</li>
+          <li><span class="icon icon-gold">3</span> Content Multiplier: Creates social posts, emails, blog content in their brand voice</li>
+          <li><span class="icon icon-gold">4</span> GHL Assistant: Manages leads, bookings, follow-ups, campaigns via conversation</li>
+          <li><span class="icon icon-gold">5</span> Auto-posting + AI image generation on schedule</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== SUB-NICHES ========== -->
+  <div class="section" id="niches">
+    <div class="section-label">Part 2</div>
+    <h2 class="section-title pink">The 11 Sub-Niches</h2>
+    <p style="color:#777; margin-bottom:20px; font-size:14px;">All serve the same customer, all feed into each other, all have B2B + B2C angles, all 200&ndash;700% margins, all dropship-friendly, no seller license required.</p>
+
+    <div class="grid-3" style="margin-bottom:16px;">
+      <div class="niche-card">
+        <h4>1. Microneedling Cartridges</h4>
+        <div class="niche-detail">Single-use pen cartridges + PDRN/peptide serums. Wholesale $0.50&ndash;$1.50, sell $3&ndash;$5. Every treatment = new cartridge.</div>
+        <span class="margin-tag margin-high">350%+ margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>2. LED Light Therapy</h4>
+        <div class="niche-detail">7-color masks, red light panels, wands. Consumer masks $25&ndash;$45 cost, sell $99&ndash;$199. Iron Man mask = TikTok viral.</div>
+        <span class="margin-tag margin-high">300&ndash;400% margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>3. Hydrofacial Machines</h4>
+        <div class="niche-detail">Aqua peel machines + AS1/SA2/AO3 solutions. Real HydraFacial = $20K. Yours = $500&ndash;$2,500 wholesale.</div>
+        <span class="margin-tag margin-high">500%+ on solutions</span>
+      </div>
+      <div class="niche-card">
+        <h4>4. RF Gels &amp; Accessories</h4>
+        <div class="niche-detail">Conductive gel every RF/cavitation treatment REQUIRES. $2&ndash;$4 cost, sell $18&ndash;$28. Impossible to skip.</div>
+        <span class="margin-tag margin-high">500&ndash;700% margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>5. PDRN Serums</h4>
+        <div class="niche-detail">#1 trending ingredient (340% YoY growth). &ldquo;Salmon DNA facial&rdquo; viral. $4&ndash;$10 cost, sell $35&ndash;$58.</div>
+        <span class="margin-tag margin-high">400&ndash;500% margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>6. Dermaplaning Blades</h4>
+        <div class="niche-detail">Sterile single-use blades. 100-pack $15&ndash;$22, sell $65&ndash;$85. Pro uses 2&ndash;5/day. ASMR gold.</div>
+        <span class="margin-tag margin-high">300%+ margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>7. Lash Lift &amp; Brow Kits</h4>
+        <div class="niche-detail">Fastest-growing service. Kits $10&ndash;$18, sell $45&ndash;$75. Solutions consumed per treatment.</div>
+        <span class="margin-tag margin-high">300&ndash;400% margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>8. Head Spa Supplies</h4>
+        <div class="niche-detail">THE biggest emerging opportunity. Scalp scrubs $3&ndash;$6, sell $24&ndash;$38. ASMR TikTok gold. $14.7B market.</div>
+        <span class="margin-tag margin-high">500%+ margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>9. Body Contouring</h4>
+        <div class="niche-detail">Cavitation, RF, EMS machines. No license required. GLP-1/Ozempic driving 30% sales increase. Highest-revenue category.</div>
+        <span class="margin-tag margin-med">100&ndash;250% on machines</span>
+      </div>
+      <div class="niche-card">
+        <h4>10. Lymphatic Drainage</h4>
+        <div class="niche-detail">Ellie's idea. Dry brushing kits, gua sha, rollers. $3&ndash;$8 cost, sell $25&ndash;$45. Trending wellness category.</div>
+        <span class="margin-tag margin-high">400%+ margin</span>
+      </div>
+      <div class="niche-card">
+        <h4>11. Eyelash Supplies</h4>
+        <div class="niche-detail">Via Petra Wholesaling. 1,000 lashes for $340. Sell $15/pack to consumers. Ashley already has this supplier.</div>
+        <span class="margin-tag margin-high">4,300% margin</span>
+      </div>
+    </div>
+    <div class="card" style="background:#0e0e0e; border-color:#1a1a1a;">
+      <p style="font-size:13px; color:#777;"><strong style="color:#bbb;">How they all connect:</strong> A single treatment session can use products from 5+ sub-niches. Every device sale creates a consumable customer. One esthetician offering facials + lash lifts + dermaplaning + body contouring + head spa buys from ALL categories. These aren't separate businesses &mdash; they're one ecosystem.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== GTM ENGINE ========== -->
+  <div class="section" id="gtm">
+    <div class="section-label">Part 3</div>
+    <h2 class="section-title pink">The GTM Engine</h2>
+
+    <div class="card">
+      <h3 class="pink">The Funnel &mdash; One System, Two Products</h3>
+      <div class="funnel">
+        <div class="funnel-step">
+          <div class="circle">&#9993;</div>
+          <div class="label">Cold Email</div>
+          <div class="sublabel">200&ndash;500/day to beauty pros. &ldquo;Want to be featured on our podcast?&rdquo;</div>
+        </div>
+        <div class="funnel-arrow">&rarr;</div>
+        <div class="funnel-step">
+          <div class="circle">&#127897;</div>
+          <div class="label">Podcast</div>
+          <div class="sublabel">&ldquo;Beauty Business Experts.&rdquo; 3&ndash;5 calls/week. Learn what they need</div>
+        </div>
+        <div class="funnel-arrow">&rarr;</div>
+        <div class="funnel-step">
+          <div class="circle">&#128230;</div>
+          <div class="label">Wholesale</div>
+          <div class="sublabel">Soft pitch post-call: &ldquo;We carry what you need at better prices&rdquo;</div>
+        </div>
+        <div class="funnel-arrow">&rarr;</div>
+        <div class="funnel-step">
+          <div class="circle">&#129302;</div>
+          <div class="label">Beauty OS</div>
+          <div class="sublabel">After trust built: &ldquo;Our AI runs your whole business&rdquo;</div>
+        </div>
+        <div class="funnel-arrow">&rarr;</div>
+        <div class="funnel-step">
+          <div class="circle">&#9851;</div>
+          <div class="label">Residual</div>
+          <div class="sublabel">$200/mo per customer. 80 = $16K/mo recurring</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="gold">Revenue Per Podcast Guest (Average)</h3>
+      <table class="data-table">
+        <tr><th>Stream</th><th>Conversion</th><th>Revenue</th></tr>
+        <tr><td>Wholesale supplies</td><td>40% become customers</td><td>$1,500/mo recurring</td></tr>
+        <tr><td>Machine sale</td><td>15% buy equipment</td><td>$1,500 one-time</td></tr>
+        <tr><td>Beauty Business OS</td><td>10% buy software</td><td>$1,000 + $200/mo</td></tr>
+        <tr><td>Content value</td><td>100% (every episode)</td><td>Indirect &mdash; grows all channels</td></tr>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="purple">The Podcast</h3>
+        <p><strong style="color:#ddd;">&ldquo;Beauty Business Experts&rdquo;</strong></p>
+        <p style="margin-top:8px;">Host: Ashley (from her podcast room in Jacksonville, via Zoom). 20&ndash;30 min format:</p>
+        <ul style="margin-top:10px;">
+          <li><span class="icon icon-purple">1</span> Warm-up (5 min): How'd you get into beauty?</li>
+          <li><span class="icon icon-purple">2</span> The business (10 min): Services, social, clients</li>
+          <li><span class="icon icon-purple">3</span> Behind the scenes (10 min): Equipment, sourcing, challenges</li>
+          <li><span class="icon icon-purple">4</span> Wrap (5 min): Where to find them, advice for starters</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="green">Win Plays</h3>
+        <ul>
+          <li><span class="icon icon-green">1</span> <strong style="color:#ddd;">Warm DM:</strong> DM every SD/esthetician for pro price list. 5&ndash;10/day</li>
+          <li><span class="icon icon-green">2</span> <strong style="color:#ddd;">Eyelash Blitz:</strong> TikTok &ldquo;$15 vs $50 lashes&rdquo; + ManyChat. 4,300% margin</li>
+          <li><span class="icon icon-green">3</span> <strong style="color:#ddd;">Beauty School Pipeline:</strong> Students as affiliates. 10&ndash;15% forever</li>
+          <li><span class="icon icon-green">4</span> <strong style="color:#ddd;">GLP-1 Hook:</strong> &ldquo;Lost weight on Ozempic? Here's what your skin needs.&rdquo;</li>
+          <li><span class="icon icon-green">5</span> <strong style="color:#ddd;">Auto-Ship:</strong> After 2nd order &rarr; recurring billing. Save 10%</li>
+          <li><span class="icon icon-green">6</span> <strong style="color:#ddd;">Price Scrape:</strong> Agent monitors supplier prices. Automated arbitrage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== TEAM ========== -->
+  <div class="section" id="team">
+    <div class="section-label">Part 4</div>
+    <h2 class="section-title gold">The Team</h2>
+
+    <div class="grid-3">
+      <div class="role-card">
+        <h4 class="purple">Ashley</h4>
+        <div class="role-title">B2B &bull; Podcast &bull; Fulfillment</div>
+        <p>Jacksonville, FL. Hosts podcast. Manages wholesale accounts &amp; B2B outreach. Ships orders. Supplier management. 5+ hrs/day available. Has podcast room ready. Electrolysis school until Aug 2026.</p>
+      </div>
+      <div class="role-card">
+        <h4 class="pink">Ellie</h4>
+        <div class="role-title">B2C &bull; Content &bull; Consumer</div>
+        <p>Orlando, FL. Primary content creator. TikTok + Instagram viral content. Product unboxings, before/afters, trends. Already has active account with growing views. 20 years old. Beauty school.</p>
+      </div>
+      <div class="role-card">
+        <h4 class="gold">Justin</h4>
+        <div class="role-title">Tech &bull; Automation &bull; AI Systems</div>
+        <p>Builds everything: GHL funnels, AI agents, cold email engine, Beauty Business OS, Content Multiplier, Paperclip dashboard. $0 cash in &mdash; tech platform is the contribution. 2&ndash;4 hrs/week ongoing.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:20px;">
+      <div class="card">
+        <h3 class="pink">Content Division</h3>
+        <table class="data-table">
+          <tr><th>Ashley (B2B)</th><th>Ellie (B2C)</th></tr>
+          <tr><td>Podcast episodes</td><td>Product unboxings</td></tr>
+          <tr><td>Pro tips &amp; education</td><td>Before/after transformations</td></tr>
+          <tr><td>Business behind-the-scenes</td><td>ASMR product application</td></tr>
+          <tr><td>Market updates</td><td>Trending audio content</td></tr>
+          <tr><td>5&ndash;7 posts/week + podcast</td><td>7&ndash;10 posts/week</td></tr>
+          <tr><td>Instagram + YouTube</td><td>TikTok + IG Reels</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 class="gold">Tech Stack</h3>
+        <ul>
+          <li><span class="icon icon-gold">1</span> <strong style="color:#ddd;">GHL</strong> &mdash; Sales funnels, checkout, CRM, email/SMS, social scheduling</li>
+          <li><span class="icon icon-gold">2</span> <strong style="color:#ddd;">Paperclip</strong> &mdash; Dashboard, task hierarchy, agent org chart</li>
+          <li><span class="icon icon-gold">3</span> <strong style="color:#ddd;">COO Agent</strong> &mdash; Order monitor, revenue reporter, content scheduler</li>
+          <li><span class="icon icon-gold">4</span> <strong style="color:#ddd;">Metricool</strong> &mdash; Free social scheduling + analytics</li>
+          <li><span class="icon icon-gold">5</span> <strong style="color:#ddd;">ManyChat</strong> &mdash; DM automation (free up to 1K contacts)</li>
+          <li><span class="icon icon-gold">6</span> <strong style="color:#ddd;">GTM Company</strong> &mdash; Cold email engine (200&ndash;500/day)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== TIMELINE ========== -->
+  <div class="section" id="timeline">
+    <div class="section-label">Part 5</div>
+    <h2 class="section-title green">Execution Timeline</h2>
+
+    <div class="timeline">
+      <div class="tl-item tl-purple">
+        <div class="tl-label">Phase 1 &mdash; Week 1</div>
+        <ul>
+          <li>Agree on brand name + domain + podcast name</li>
+          <li>Create GHL sub-account, connect Stripe</li>
+          <li>Purchase 3&ndash;5 cold email domains, start warmup</li>
+          <li>Sign up with Glownar, MyChway, Konmison, Advance-Esthetic</li>
+          <li>Ashley orders from Petra (1,000 lashes = $340)</li>
+          <li>Ellie creates brand TikTok + Instagram accounts</li>
+        </ul>
+      </div>
+      <div class="tl-item tl-pink">
+        <div class="tl-label">Phase 2 &mdash; Week 2</div>
+        <ul>
+          <li>Build wholesale site &mdash; list first 15 machines</li>
+          <li>Build email sequences (abandoned cart, welcome, review)</li>
+          <li>Set up ManyChat + Metricool</li>
+          <li>First content day &mdash; film 7+ videos together</li>
+          <li>Ashley sets up shipping station ($70 printer + supplies)</li>
+          <li>Ashley test orders from 2&ndash;3 suppliers ($200&ndash;$400)</li>
+        </ul>
+      </div>
+      <div class="tl-item tl-gold">
+        <div class="tl-label">Phase 3 &mdash; Week 3</div>
+        <ul>
+          <li>Soft launch &mdash; share in personal networks</li>
+          <li>Ellie posts first TikTok + first IG Reel</li>
+          <li>Scrape 30,000+ esthetician leads</li>
+          <li>Cold email domains still warming</li>
+          <li>Ashley begins warm DM outreach (5&ndash;10/day)</li>
+          <li>Contact beauty schools about affiliate program</li>
+        </ul>
+      </div>
+      <div class="tl-item tl-green">
+        <div class="tl-label">Phase 4 &mdash; Week 4</div>
+        <ul>
+          <li>Cold email goes LIVE (50/day per domain)</li>
+          <li>First podcast episodes booked from cold email</li>
+          <li>Record first &ldquo;Beauty Business Experts&rdquo; episode</li>
+          <li>Build GHL affiliate program for students</li>
+          <li>Launch announcement + daily posting rhythm locked in</li>
+          <li>Month 1 review: orders, revenue, content, podcast bookings</li>
+        </ul>
+      </div>
+      <div class="tl-item tl-blue">
+        <div class="tl-label">Phase 5 &mdash; Month 2&ndash;3</div>
+        <ul>
+          <li>Cold email at full volume (200&ndash;500/day)</li>
+          <li>3&ndash;5 podcast calls/week converting to wholesale</li>
+          <li>Content Multiplier on every episode &rarr; 32+ pieces</li>
+          <li>Deploy remaining AI agents</li>
+          <li>Beauty Business OS ready to demo and sell</li>
+          <li>Month 3: Launch $300/mo retargeting ads</li>
+        </ul>
+      </div>
+      <div class="tl-item tl-purple">
+        <div class="tl-label">Phase 6 &mdash; Month 4&ndash;6</div>
+        <ul>
+          <li>Beauty OS selling &mdash; first customers onboarded</li>
+          <li>15&ndash;25 recurring B2B wholesale accounts</li>
+          <li>10&ndash;20 beauty school affiliates generating orders</li>
+          <li>Subscription box piloted</li>
+          <li>Ashley finishes electrolysis school (Aug 2026)</li>
+          <li>Approaching $5K&ndash;$8K/partner/month wholesale</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== FINANCIALS ========== -->
+  <div class="section" id="financials">
+    <div class="section-label">Part 6</div>
+    <h2 class="section-title gold">Financial Targets</h2>
+
+    <div class="card" style="margin-bottom:20px;">
+      <h3 class="green">Startup Budget &mdash; $450&ndash;$750 Total</h3>
+      <table class="data-table">
+        <tr><th>Item</th><th>Cost</th></tr>
+        <tr><td>Initial test inventory (Petra lashes + consumables)</td><td>$300&ndash;$500</td></tr>
+        <tr><td>Domain</td><td>$12</td></tr>
+        <tr><td>Shipping supplies (printer, mailers, scale)</td><td>$40</td></tr>
+        <tr><td>B2B product samples</td><td>$100&ndash;$200</td></tr>
+      </table>
+      <p style="margin-top:12px; font-size:13px; color:#666;">Funded by Ashley &amp; Ellie. Justin invests $0 cash &mdash; contributes tech platform. Marketing expenses come out of revenue before profit split.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="stat-card">
+        <div class="stat-label">Month 1</div>
+        <div class="stat-number purple">$2.5K&ndash;$6K</div>
+        <div class="stat-sub">Gross revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Month 3</div>
+        <div class="stat-number pink">$15K&ndash;$25K</div>
+        <div class="stat-sub">Wholesale gross + OS sales</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Month 6</div>
+        <div class="stat-number gold">$25K&ndash;$30K</div>
+        <div class="stat-sub">$5K&ndash;$8K per partner</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Month 12</div>
+        <div class="stat-number green">$16K/mo</div>
+        <div class="stat-sub">Beauty OS residual alone</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3 class="gold">Break-Even Analysis</h3>
+      <p>At 50% net margin and $65 blended AOV = <strong style="color:#ddd;">14&ndash;23 orders</strong> to break even. Warm market should produce 10&ndash;15 orders week 1. <strong style="color:#a0dcc8;">Eyelash margin alone:</strong> buy 1,000 for $340, sell at $15/pack = $3,000 revenue from 200 packs. Even 50 packs = $750 revenue, $410 profit. <strong style="color:#ddd;">Break-even: Week 2&ndash;3.</strong></p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== CHECKLIST ========== -->
+  <div class="section" id="checklist">
+    <div class="section-label">Part 7</div>
+    <h2 class="section-title pink">Ashley &amp; Ellie's Launch Checklist</h2>
+
+    <div class="progress-wrap" id="checklist-progress">
+      <div class="progress-header">
+        <span class="progress-text">Overall Progress</span>
+        <span class="progress-count" id="progress-count">0 / 25 completed</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" data-group="pre">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 class="purple" style="margin-bottom:0;">Before Day 1</h3>
+          <span class="progress-count" style="font-size:11px;" id="count-pre">0/5</span>
+        </div>
+        <ul class="checklist" data-group="pre">
+          <li data-id="pre-1"><span class="check"></span><span>Decide on brand name &rarr; tell Justin</span></li>
+          <li data-id="pre-2"><span class="check"></span><span>Pick top 3&ndash;4 sub-niches to launch with</span></li>
+          <li data-id="pre-3"><span class="check"></span><span>Decide: rebrand Ellie's account or new?</span></li>
+          <li data-id="pre-4"><span class="check"></span><span>Review and sign partnership agreement</span></li>
+          <li data-id="pre-5"><span class="check"></span><span>Ashley: Order from Petra (1,000 lashes = $340)</span></li>
+        </ul>
+      </div>
+      <div class="card" data-group="day1">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 class="pink" style="margin-bottom:0;">Day 1&ndash;3: Foundation</h3>
+          <span class="progress-count" style="font-size:11px;" id="count-day1">0/6</span>
+        </div>
+        <ul class="checklist" data-group="day1">
+          <li data-id="day1-1"><span class="check"></span><span>Ashley: Purchase domain (~$12)</span></li>
+          <li data-id="day1-2"><span class="check"></span><span>Ashley: File FL LLC on Sunbiz.org ($125)</span></li>
+          <li data-id="day1-3"><span class="check"></span><span>Ellie: Create brand TikTok Business account</span></li>
+          <li data-id="day1-4"><span class="check"></span><span>Ellie: Create brand Instagram Business account</span></li>
+          <li data-id="day1-5"><span class="check"></span><span>Ellie: Design brand logo in Canva</span></li>
+          <li data-id="day1-6"><span class="check"></span><span>Both: Join Slack channel</span></li>
+        </ul>
+      </div>
+      <div class="card" data-group="day4">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 class="gold" style="margin-bottom:0;">Day 4&ndash;7: Content &amp; Product</h3>
+          <span class="progress-count" style="font-size:11px;" id="count-day4">0/7</span>
+        </div>
+        <ul class="checklist" data-group="day4">
+          <li data-id="day4-1"><span class="check"></span><span>Schedule first content day together</span></li>
+          <li data-id="day4-2"><span class="check"></span><span>Film 7+ videos in one session</span></li>
+          <li data-id="day4-3"><span class="check"></span><span>Ellie: Edit all videos in CapCut</span></li>
+          <li data-id="day4-4"><span class="check"></span><span>Ellie: Write captions + hashtags (UBC training)</span></li>
+          <li data-id="day4-5"><span class="check"></span><span>Ellie: Schedule Week 1 posts in Metricool</span></li>
+          <li data-id="day4-6"><span class="check"></span><span>Ashley: Set up shipping station (~$97)</span></li>
+          <li data-id="day4-7"><span class="check"></span><span>Ashley: Place test orders ($100&ndash;$200)</span></li>
+        </ul>
+      </div>
+      <div class="card" data-group="day8">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 class="green" style="margin-bottom:0;">Day 8&ndash;14: Launch</h3>
+          <span class="progress-count" style="font-size:11px;" id="count-day8">0/7</span>
+        </div>
+        <ul class="checklist" data-group="day8">
+          <li data-id="day8-1"><span class="check"></span><span>Share store link on personal stories + TikTok</span></li>
+          <li data-id="day8-2"><span class="check"></span><span>Text/DM 20 friends: use code LAUNCH for 15% off</span></li>
+          <li data-id="day8-3"><span class="check"></span><span>Ellie: Post first TikTok + first Instagram Reel</span></li>
+          <li data-id="day8-4"><span class="check"></span><span>Ellie: Respond to EVERY comment within 1 hour</span></li>
+          <li data-id="day8-5"><span class="check"></span><span>Ashley: DM 10 estheticians with pro price list</span></li>
+          <li data-id="day8-6"><span class="check"></span><span>Ashley: Fulfill first orders within 24 hours</span></li>
+          <li data-id="day8-7"><span class="check"></span><span>Ashley: Prep for first podcast (invite 3 guests)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3 class="pink">Weekly Rhythm</h3>
+      <table class="data-table">
+        <tr><th>Day</th><th>Ellie (B2C / Content)</th><th>Ashley (B2B / Podcast)</th></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Sunday</td><td>Batch film 5&ndash;7 videos. Schedule in Metricool</td><td>Plan the week: orders, inventory, podcast prep</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Monday</td><td>Education content (ingredients, tips)</td><td>Process orders + customer service</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Tuesday</td><td>Product showcase / unboxing / demo</td><td>B2B DM outreach: 5&ndash;10 estheticians</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Wednesday</td><td>Transformation / before-after</td><td>Podcast call (1&ndash;2/week)</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Thursday</td><td>BTS / trending audio</td><td>Post-podcast follow-up + wholesale pitch</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Friday</td><td>Testimonial / reply-to-comment / ASMR</td><td>Supplier management + product research</td></tr>
+        <tr><td style="color:#ddd; font-weight:600;">Saturday</td><td>IG Stories only (light day)</td><td>Podcast content or off</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== TEAM CHAT ========== -->
+  <div class="section" id="chat">
+    <div class="section-label">Part 7.5</div>
+    <h2 class="section-title gold">Team Chat</h2>
+    <p style="color:#666; font-size:13px; margin-bottom:16px;">Drop updates and coordinate here. Everything saves locally.</p>
+
+    <div class="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-empty" id="chat-empty">No messages yet. Start the conversation below.</div>
+      </div>
+      <div class="chat-input-row">
+        <select class="chat-who" id="chat-who">
+          <option value="ashley">Ashley</option>
+          <option value="ellie">Ellie</option>
+          <option value="justin">Justin</option>
+        </select>
+        <input class="chat-text-input" id="chat-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="chat-send" onclick="sendChat()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== CONTENT STUDIO ========== -->
+  <div class="section" id="content-studio">
+    <div class="section-label">Part 7.6</div>
+    <h2 class="section-title pink">Content Studio</h2>
+    <p style="color:#666; font-size:13px; margin-bottom:16px;">Ideas &rarr; Content Agent &rarr; Created Content &rarr; Posted. The full pipeline.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-ideas">Content Ideas</button>
+      <button class="tab-btn" data-tab="tab-agent">Content Agent</button>
+      <button class="tab-btn" data-tab="tab-created">Created Content</button>
+      <button class="tab-btn" data-tab="tab-links">Links &amp; Resources</button>
+    </div>
+
+    <!-- Content Ideas Tab -->
+    <div class="tab-content active" id="tab-ideas">
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <h3 class="pink" style="margin-bottom:0;">Content Ideas Board</h3>
+          <span class="idea-count" id="ideas-count"></span>
+        </div>
+        <p style="color:#666; font-size:13px; margin-bottom:4px;">Submit video ideas, trending sounds, caption drafts. Click to edit. Cross off when actioned.</p>
+        <div class="idea-input-row">
+          <select class="idea-who-select" id="idea-who">
+            <option value="ellie">Ellie</option>
+            <option value="ashley">Ashley</option>
+            <option value="justin">Justin</option>
+          </select>
+          <input class="idea-input" id="idea-input" placeholder="Add a content idea..." onkeydown="if(event.key==='Enter')submitIdea()">
+          <button class="idea-submit" onclick="submitIdea()">Add</button>
+        </div>
+        <ul class="idea-list" id="ideas-list">
+          <div class="idea-empty" id="ideas-empty">No ideas yet. Add one above.</div>
+        </ul>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3 class="purple" style="font-size:15px;">Ellie's Queue</h3>
+          <p style="color:#666; font-size:12px; margin-bottom:4px;">Filming next, edited &amp; ready, posted this week.</p>
+          <div class="idea-input-row">
+            <input class="idea-input" id="ellie-q-input" placeholder="Add to Ellie's queue..." onkeydown="if(event.key==='Enter')submitQueueItem('ellie')">
+            <button class="idea-submit" onclick="submitQueueItem('ellie')" style="padding:8px 14px;">Add</button>
+          </div>
+          <ul class="idea-list" id="ellie-queue-list">
+            <div class="idea-empty" id="ellie-queue-empty">Empty queue.</div>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="gold" style="font-size:15px;">Ashley's Queue</h3>
+          <p style="color:#666; font-size:12px; margin-bottom:4px;">Podcast guests, B2B clips, expert content.</p>
+          <div class="idea-input-row">
+            <input class="idea-input" id="ashley-q-input" placeholder="Add to Ashley's queue..." onkeydown="if(event.key==='Enter')submitQueueItem('ashley')">
+            <button class="idea-submit" onclick="submitQueueItem('ashley')" style="padding:8px 14px;">Add</button>
+          </div>
+          <ul class="idea-list" id="ashley-queue-list">
+            <div class="idea-empty" id="ashley-queue-empty">Empty queue.</div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Agent Tab -->
+    <div class="tab-content" id="tab-agent">
+      <div class="card">
+        <h3 class="purple">Content Agent &mdash; Titan Genome</h3>
+        <p style="color:#666; font-size:13px; margin-bottom:4px;">3-stage pipeline: Creator (3 drafts) &rarr; Critic (scores each) &rarr; Approver (picks the winner). Select platform, post type, describe your idea, and hit Generate.</p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3 class="gold" style="margin-bottom:16px;">Generate Content</h3>
+
+        <!-- Platform Selection -->
+        <div style="font-size:11px; color:#555; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Platform</div>
+        <div class="platform-row">
+          <div class="platform-btn selected" data-platform="tiktok" onclick="selectPlatform(this)">
+            <div class="plat-icon">&#9836;</div>
+            <div class="plat-label">TikTok</div>
+          </div>
+          <div class="platform-btn" data-platform="instagram" onclick="selectPlatform(this)">
+            <div class="plat-icon">&#128247;</div>
+            <div class="plat-label">Instagram</div>
+          </div>
+          <div class="platform-btn" data-platform="facebook" onclick="selectPlatform(this)">
+            <div class="plat-icon">&#128101;</div>
+            <div class="plat-label">Facebook</div>
+          </div>
+        </div>
+
+        <!-- Post Type Chips -->
+        <div class="post-type-wrap">
+          <label>Post Type</label>
+          <div class="post-type-chips" id="post-type-chips">
+            <!-- Populated by JS based on platform -->
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="font-size:11px; color:#555; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">What's the post about?</div>
+        <textarea class="generate-context" id="generate-context" placeholder="e.g. Talking about what estheticians are actually saying about our products, what's actually selling and working..."></textarea>
+
+        <button class="generate-btn" id="generate-btn" onclick="generateContent()">Generate 3 Drafts</button>
+      </div>
+
+      <!-- Generated Output (hidden until generated) -->
+      <div class="generated-output" id="generated-output">
+        <div class="card" style="border:none; padding:0;">
+          <h4 class="green" style="font-size:15px;">
+            <span style="font-size:11px; background:rgba(160,220,200,0.15); color:#a0dcc8; padding:2px 8px; border-radius:4px;">WINNER</span>
+            <span id="gen-winner-label">Draft 1</span>
+          </h4>
+          <div class="draft-tabs" id="draft-tabs"></div>
+          <div class="draft-body" id="draft-body"></div>
+          <div class="draft-scores" id="draft-scores"></div>
+          <div class="gen-actions">
+            <button class="gen-action gen-save" onclick="saveGenerated()">Save to Created Content</button>
+            <button class="gen-action gen-copy" onclick="copyGenerated()">Copy</button>
+            <button class="gen-action gen-regen" onclick="generateContent()">Regenerate</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manual Add -->
+      <div class="card" style="margin-top:16px;">
+        <h3 style="font-size:14px; color:#888; margin-bottom:10px;">Or add content manually</h3>
+        <select class="idea-who-select" id="created-type-select" style="margin-bottom:8px;">
+          <option value="tiktok">TikTok</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+        </select>
+        <textarea class="generate-context" id="created-content-input" placeholder="Write or paste content here..." style="min-height:100px; width:100%;"></textarea>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <button class="idea-submit" onclick="saveCreatedContent('draft')">Save as Draft</button>
+          <button class="idea-submit" onclick="saveCreatedContent('ready')" style="background:linear-gradient(135deg, #a0befd, #c9a0dc);">Save as Ready</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Created Content Tab -->
+    <div class="tab-content" id="tab-created">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <h3 class="green" style="margin-bottom:0;">Created Content</h3>
+        <span class="idea-count" id="created-count"></span>
+      </div>
+      <p style="color:#666; font-size:13px; margin-bottom:16px;">All content pieces from the pipeline. Edit inline, mark as posted when live.</p>
+
+      <div id="created-content-list">
+        <div class="content-empty" id="created-empty">No content created yet. Use the Content Agent tab to generate content.</div>
+      </div>
+    </div>
+
+    <!-- Links & Resources Tab -->
+    <div class="tab-content" id="tab-links">
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <h3 class="green" style="margin-bottom:0;">Shared Links &amp; Resources</h3>
+          <span class="idea-count" id="links-count"></span>
+        </div>
+        <p style="color:#666; font-size:13px; margin-bottom:4px;">Submit links to suppliers, competitors, tools, inspiration. Cross off when no longer needed.</p>
+        <div class="idea-input-row">
+          <input class="idea-input" id="link-input" placeholder="Add a link or resource..." onkeydown="if(event.key==='Enter')submitLink()">
+          <button class="idea-submit" onclick="submitLink()">Add</button>
+        </div>
+        <ul class="idea-list" id="links-list">
+          <div class="idea-empty" id="links-empty">No links yet. Add one above.</div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== AGREEMENT ========== -->
+  <div class="section" id="agreement">
+    <div class="section-label">Part 8</div>
+    <h2 class="section-title purple">Partnership Agreement &mdash; Term Sheet</h2>
+
+    <div class="agreement-grid">
+      <div class="agreement-box">
+        <h4>Ownership</h4>
+        <p>Justin: 33.33% &bull; Ashley: 33.33% &bull; Ellie: 33.33%<br>Entity: Florida LLC (Sunbiz.org, $125 filing fee)</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Capital</h4>
+        <p>Ashley &amp; Ellie: 100% of cash startup costs ($450&ndash;$750).<br>Justin: $0 cash. Tech platform valued at $3K&ndash;$5K.</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Revenue Split</h4>
+        <p>Gross &minus; COGS &minus; Marketing &minus; Operating Expenses = Net Profit.<br>Split 33/33/33. Distributions monthly by the 5th.</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Decisions</h4>
+        <p>Day-to-day: area owner decides. Major (>$500, pricing, partnerships): all three agree. Disputes: majority vote (2 of 3).</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Intellectual Property</h4>
+        <p>Brand, content, customer list = LLC property.<br>Justin's tech (Paperclip, COO, Content Multiplier) = Justin's IP, licensed free to LLC.<br>Beauty Business OS = Justin's separate product, NOT part of LLC. 20% commission for Ashley/Ellie sales.</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Exit / Dissolution</h4>
+        <p>60-day written notice. Remaining partners can buy out at fair market value (trailing 6-month avg profit &times; 12). 12-month non-compete. If all dissolve: liquidate and split 33/33/33.</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Expenses</h4>
+        <p>No single expense over $200 without notifying all partners. All business expenses tracked with receipts. Personal expenses never through the business.</p>
+      </div>
+      <div class="agreement-box">
+        <h4>Review</h4>
+        <p>Monthly P&amp;L review (all three). Quarterly strategy review. Annual agreement review (is the split still fair? Do roles need adjusting?).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== OPEN QUESTIONS ========== -->
+  <div class="section" id="questions">
+    <div class="section-label">Part 9</div>
+    <h2 class="section-title blue">Open Questions &mdash; Need Answers Before Launch</h2>
+    <p style="color:#666; font-size:13px; margin-bottom:16px;">Type your answers below. They save automatically to your browser.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Brand name?</strong> Is &ldquo;B2BizOps&rdquo; final? Does it work for B2C too?</div>
+          <input class="question-input" data-q="brand-name" placeholder="Type your answer...">
+          <div class="question-saved" data-saved="brand-name">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Podcast name?</strong> &ldquo;Beauty Business Experts&rdquo; working title</div>
+          <input class="question-input" data-q="podcast-name" placeholder="Type your answer...">
+          <div class="question-saved" data-saved="podcast-name">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Top 3&ndash;4 niches?</strong> Pick from the 11 options above</div>
+          <input class="question-input" data-q="top-niches" placeholder="e.g. Eyelashes, Consumables, Body Contouring, Lymphatic">
+          <div class="question-saved" data-saved="top-niches">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Ellie's account?</strong> Rebrand existing or create new?</div>
+          <input class="question-input" data-q="ellie-account" placeholder="Rebrand / New account / Cross-promote">
+          <div class="question-saved" data-saved="ellie-account">Saved</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Fulfillment?</strong> Ashley (JAX) or Ellie (Orlando) or both?</div>
+          <input class="question-input" data-q="fulfillment" placeholder="Type your answer...">
+          <div class="question-saved" data-saved="fulfillment">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">LLC filing?</strong> Now or later? ($125 Sunbiz)</div>
+          <input class="question-input" data-q="llc-filing" placeholder="Now / After first revenue / Later">
+          <div class="question-saved" data-saved="llc-filing">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">Budget split?</strong> Each half, or one fronting?</div>
+          <input class="question-input" data-q="budget-split" placeholder="50/50 / One person fronting / Other">
+          <div class="question-saved" data-saved="budget-split">Saved</div>
+        </div>
+        <div class="question-item">
+          <div class="question-label"><span class="icon icon-blue">?</span> <strong style="color:#ddd;">GHL vs Shopify?</strong> For the storefront</div>
+          <input class="question-input" data-q="storefront" placeholder="GHL / Shopify / Other">
+          <div class="question-saved" data-saved="storefront">Saved</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3 class="blue">Notes &amp; Ideas</h3>
+      <p style="font-size:13px; color:#666; margin-bottom:4px;">Jot down anything &mdash; saves automatically.</p>
+      <textarea class="notes-area" id="general-notes" placeholder="Drop notes, ideas, questions here..."></textarea>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div style="display:flex; justify-content:center; gap:16px; align-items:center; margin-bottom:12px;">
+      <button class="reset-btn" onclick="resetAll()">Reset All Progress</button>
+    </div>
+    <p>THE BEAUTY BUSINESS &bull; WHOLESALE + AI-POWERED OPERATIONS &bull; APRIL 2026</p>
+    <p style="margin-top:8px; color:#333;">Built with Claude Code</p>
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'beauty-plan-state';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+  catch(e) { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+function now() {
+  const d = new Date();
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' at ' +
+    d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+function escapeHtml(text) {
+  const d = document.createElement('div');
+  d.textContent = text;
+  return d.innerHTML;
+}
+
+// ============ CHECKLISTS WITH NOTES ============
+function initChecklists() {
+  const state = loadState();
+  const checks = state.checks || {};
+  const itemNotes = state.itemNotes || {};
+
+  document.querySelectorAll('.checklist li[data-id]').forEach(li => {
+    const id = li.dataset.id;
+    const checkEl = li.querySelector('.check');
+
+    const noteBtn = document.createElement('span');
+    noteBtn.className = 'item-note-toggle' + (itemNotes[id] ? ' has-note' : '');
+    noteBtn.textContent = itemNotes[id] ? 'notes' : '+ note';
+    noteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const noteArea = li.querySelector('.item-note-area');
+      noteArea.classList.toggle('open');
+      noteArea.querySelector('.item-note-input').focus();
+    });
+    li.appendChild(noteBtn);
+
+    const noteArea = document.createElement('div');
+    noteArea.className = 'item-note-area';
+    const noteInput = document.createElement('textarea');
+    noteInput.className = 'item-note-input';
+    noteInput.placeholder = 'Add details, links, who did what...';
+    noteInput.value = itemNotes[id] || '';
+    noteInput.rows = 2;
+    noteInput.addEventListener('click', (e) => e.stopPropagation());
+    noteInput.addEventListener('keydown', (e) => e.stopPropagation());
+    let noteSaveTimeout;
+    noteInput.addEventListener('input', (e) => {
+      e.stopPropagation();
+      clearTimeout(noteSaveTimeout);
+      noteSaveTimeout = setTimeout(() => {
+        const s = loadState();
+        if (!s.itemNotes) s.itemNotes = {};
+        s.itemNotes[id] = noteInput.value;
+        saveState(s);
+        noteBtn.textContent = noteInput.value ? 'notes' : '+ note';
+        noteBtn.classList.toggle('has-note', !!noteInput.value);
+      }, 400);
+    });
+    noteArea.appendChild(noteInput);
+    li.appendChild(noteArea);
+
+    if (checks[id]) li.classList.add('checked');
+    if (li.classList.contains('checked')) checkEl.textContent = '\u2713';
+
+    li.addEventListener('click', (e) => {
+      if (e.target.closest('.item-note-area') || e.target.closest('.item-note-toggle')) return;
+      li.classList.toggle('checked');
+      const isChecked = li.classList.contains('checked');
+      checkEl.textContent = isChecked ? '\u2713' : '';
+      const s = loadState();
+      if (!s.checks) s.checks = {};
+      s.checks[id] = isChecked;
+      saveState(s);
+      updateProgress();
+    });
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  const allItems = document.querySelectorAll('.checklist li[data-id]');
+  const checkedItems = document.querySelectorAll('.checklist li[data-id].checked');
+  const total = allItems.length;
+  const done = checkedItems.length;
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  document.getElementById('progress-count').textContent = done + ' / ' + total + ' completed';
+  document.getElementById('progress-fill').style.width = pct + '%';
+  ['pre', 'day1', 'day4', 'day8'].forEach(group => {
+    const gi = document.querySelectorAll('.checklist[data-group="' + group + '"] li[data-id]');
+    const gc = document.querySelectorAll('.checklist[data-group="' + group + '"] li[data-id].checked');
+    const el = document.getElementById('count-' + group);
+    if (el) el.textContent = gc.length + '/' + gi.length;
+  });
+}
+
+// ============ QUESTION INPUTS ============
+function initQuestions() {
+  const state = loadState();
+  const answers = state.answers || {};
+  document.querySelectorAll('.question-input').forEach(input => {
+    const key = input.dataset.q;
+    if (answers[key]) input.value = answers[key];
+    let t;
+    input.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const s = loadState();
+        if (!s.answers) s.answers = {};
+        s.answers[key] = input.value;
+        saveState(s);
+        const savedEl = document.querySelector('[data-saved="' + key + '"]');
+        if (savedEl) { savedEl.classList.add('show'); setTimeout(() => savedEl.classList.remove('show'), 1500); }
+      }, 500);
+    });
+  });
+}
+
+// ============ NOTES TEXTAREA ============
+function initTextAreas() {
+  const state = loadState();
+  const areas = state.areas || {};
+  ['general-notes'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (areas[id]) el.value = areas[id];
+    let t;
+    el.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const s = loadState();
+        if (!s.areas) s.areas = {};
+        s.areas[id] = el.value;
+        saveState(s);
+      }, 500);
+    });
+  });
+}
+
+// ============ TABS ============
+function initTabs() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.dataset.tab;
+      const section = btn.closest('.section');
+      section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      section.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
+}
+
+// ============ CHAT ============
+const AVATAR_MAP = {
+  ashley: { initials: 'A', class: 'avatar-ashley', name: 'Ashley' },
+  ellie: { initials: 'E', class: 'avatar-ellie', name: 'Ellie' },
+  justin: { initials: 'J', class: 'avatar-justin', name: 'Justin' },
+};
+
+function renderChat() {
+  const state = loadState();
+  const msgs = state.chatMessages || [];
+  const container = document.getElementById('chat-messages');
+  const empty = document.getElementById('chat-empty');
+
+  if (msgs.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  container.querySelectorAll('.chat-msg').forEach(m => m.remove());
+
+  msgs.forEach(msg => {
+    const av = AVATAR_MAP[msg.who] || AVATAR_MAP.justin;
+    const div = document.createElement('div');
+    div.className = 'chat-msg';
+    div.innerHTML =
+      '<div class="chat-avatar ' + av.class + '">' + av.initials + '</div>' +
+      '<div class="chat-bubble">' +
+        '<div class="chat-name" style="color:' + getNameColor(msg.who) + '">' + av.name + '</div>' +
+        '<div class="chat-text">' + escapeHtml(msg.text) + '</div>' +
+        '<div class="chat-time">' + msg.time + '</div>' +
+      '</div>';
+    container.appendChild(div);
+  });
+  container.scrollTop = container.scrollHeight;
+}
+
+function getNameColor(who) {
+  if (who === 'ashley') return '#c9a0dc';
+  if (who === 'ellie') return '#f7c6d0';
+  return '#fdd6a0';
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const who = document.getElementById('chat-who').value;
+  const s = loadState();
+  if (!s.chatMessages) s.chatMessages = [];
+  s.chatMessages.push({ who, text, time: now() });
+  saveState(s);
+  input.value = '';
+  renderChat();
+}
+
+// ============ CONTENT IDEAS (submittable list) ============
+function submitIdea() {
+  const input = document.getElementById('idea-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const who = document.getElementById('idea-who').value;
+  const s = loadState();
+  if (!s.ideas) s.ideas = [];
+  s.ideas.push({ id: uid(), text, who, time: now(), actioned: false });
+  saveState(s);
+  input.value = '';
+  renderIdeas();
+}
+
+function renderIdeas() {
+  const s = loadState();
+  const ideas = s.ideas || [];
+  const list = document.getElementById('ideas-list');
+  const empty = document.getElementById('ideas-empty');
+  list.querySelectorAll('.idea-item').forEach(el => el.remove());
+
+  const active = ideas.filter(i => !i.actioned);
+  const done = ideas.filter(i => i.actioned);
+  const countEl = document.getElementById('ideas-count');
+  if (countEl) countEl.textContent = active.length + ' active' + (done.length ? ' / ' + done.length + ' done' : '');
+
+  if (ideas.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  // Show active first, then actioned
+  [...active, ...done].forEach(idea => {
+    const li = document.createElement('li');
+    li.className = 'idea-item' + (idea.actioned ? ' actioned' : '');
+    li.innerHTML =
+      '<div class="idea-check" onclick="toggleIdea(\'' + idea.id + '\')">' + (idea.actioned ? '\u2713' : '') + '</div>' +
+      '<div style="flex:1; min-width:0;">' +
+        '<div class="idea-text" id="idea-text-' + idea.id + '">' +
+          '<span class="idea-tag tag-' + idea.who + '">' + idea.who + '</span>' +
+          escapeHtml(idea.text) +
+        '</div>' +
+        '<div class="idea-meta">' + idea.time + '</div>' +
+      '</div>' +
+      '<div class="idea-actions">' +
+        '<button class="idea-action-btn" onclick="editIdea(\'' + idea.id + '\')">edit</button>' +
+        '<button class="idea-action-btn del" onclick="deleteIdea(\'' + idea.id + '\')">del</button>' +
+      '</div>';
+    list.appendChild(li);
+  });
+}
+
+function toggleIdea(id) {
+  const s = loadState();
+  const idea = (s.ideas || []).find(i => i.id === id);
+  if (idea) { idea.actioned = !idea.actioned; saveState(s); renderIdeas(); }
+}
+
+function editIdea(id) {
+  const s = loadState();
+  const idea = (s.ideas || []).find(i => i.id === id);
+  if (!idea) return;
+  const newText = prompt('Edit idea:', idea.text);
+  if (newText !== null && newText.trim()) {
+    idea.text = newText.trim();
+    saveState(s);
+    renderIdeas();
+  }
+}
+
+function deleteIdea(id) {
+  const s = loadState();
+  s.ideas = (s.ideas || []).filter(i => i.id !== id);
+  saveState(s);
+  renderIdeas();
+}
+
+// ============ QUEUE ITEMS (Ellie / Ashley) ============
+function submitQueueItem(who) {
+  const input = document.getElementById(who + '-q-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const s = loadState();
+  const key = who + 'Queue';
+  if (!s[key]) s[key] = [];
+  s[key].push({ id: uid(), text, time: now(), actioned: false });
+  saveState(s);
+  input.value = '';
+  renderQueue(who);
+}
+
+function renderQueue(who) {
+  const s = loadState();
+  const key = who + 'Queue';
+  const items = s[key] || [];
+  const list = document.getElementById(who + '-queue-list');
+  const empty = document.getElementById(who + '-queue-empty');
+  list.querySelectorAll('.idea-item').forEach(el => el.remove());
+
+  if (items.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  const active = items.filter(i => !i.actioned);
+  const done = items.filter(i => i.actioned);
+
+  [...active, ...done].forEach(item => {
+    const li = document.createElement('li');
+    li.className = 'idea-item' + (item.actioned ? ' actioned' : '');
+    li.innerHTML =
+      '<div class="idea-check" onclick="toggleQueue(\'' + who + '\',\'' + item.id + '\')">' + (item.actioned ? '\u2713' : '') + '</div>' +
+      '<div style="flex:1; min-width:0;">' +
+        '<div class="idea-text">' + escapeHtml(item.text) + '</div>' +
+        '<div class="idea-meta">' + item.time + '</div>' +
+      '</div>' +
+      '<div class="idea-actions">' +
+        '<button class="idea-action-btn" onclick="editQueue(\'' + who + '\',\'' + item.id + '\')">edit</button>' +
+        '<button class="idea-action-btn del" onclick="deleteQueue(\'' + who + '\',\'' + item.id + '\')">del</button>' +
+      '</div>';
+    list.appendChild(li);
+  });
+}
+
+function toggleQueue(who, id) {
+  const s = loadState();
+  const item = (s[who + 'Queue'] || []).find(i => i.id === id);
+  if (item) { item.actioned = !item.actioned; saveState(s); renderQueue(who); }
+}
+
+function editQueue(who, id) {
+  const s = loadState();
+  const item = (s[who + 'Queue'] || []).find(i => i.id === id);
+  if (!item) return;
+  const newText = prompt('Edit item:', item.text);
+  if (newText !== null && newText.trim()) {
+    item.text = newText.trim();
+    saveState(s);
+    renderQueue(who);
+  }
+}
+
+function deleteQueue(who, id) {
+  const s = loadState();
+  s[who + 'Queue'] = (s[who + 'Queue'] || []).filter(i => i.id !== id);
+  saveState(s);
+  renderQueue(who);
+}
+
+// ============ LINKS (submittable list) ============
+function submitLink() {
+  const input = document.getElementById('link-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const s = loadState();
+  if (!s.links) s.links = [];
+  s.links.push({ id: uid(), text, time: now(), actioned: false });
+  saveState(s);
+  input.value = '';
+  renderLinks();
+}
+
+function renderLinks() {
+  const s = loadState();
+  const links = s.links || [];
+  const list = document.getElementById('links-list');
+  const empty = document.getElementById('links-empty');
+  list.querySelectorAll('.idea-item').forEach(el => el.remove());
+
+  const active = links.filter(i => !i.actioned);
+  const done = links.filter(i => i.actioned);
+  const countEl = document.getElementById('links-count');
+  if (countEl) countEl.textContent = active.length + ' active' + (done.length ? ' / ' + done.length + ' done' : '');
+
+  if (links.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  [...active, ...done].forEach(link => {
+    const li = document.createElement('li');
+    li.className = 'idea-item' + (link.actioned ? ' actioned' : '');
+    // Auto-detect URLs and make them clickable
+    let displayText = escapeHtml(link.text);
+    displayText = displayText.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color:#a0befd; text-decoration:underline;">$1</a>');
+    li.innerHTML =
+      '<div class="idea-check" onclick="toggleLink(\'' + link.id + '\')">' + (link.actioned ? '\u2713' : '') + '</div>' +
+      '<div style="flex:1; min-width:0;">' +
+        '<div class="idea-text">' + displayText + '</div>' +
+        '<div class="idea-meta">' + link.time + '</div>' +
+      '</div>' +
+      '<div class="idea-actions">' +
+        '<button class="idea-action-btn" onclick="editLink(\'' + link.id + '\')">edit</button>' +
+        '<button class="idea-action-btn del" onclick="deleteLink(\'' + link.id + '\')">del</button>' +
+      '</div>';
+    list.appendChild(li);
+  });
+}
+
+function toggleLink(id) {
+  const s = loadState();
+  const link = (s.links || []).find(i => i.id === id);
+  if (link) { link.actioned = !link.actioned; saveState(s); renderLinks(); }
+}
+
+function editLink(id) {
+  const s = loadState();
+  const link = (s.links || []).find(i => i.id === id);
+  if (!link) return;
+  const newText = prompt('Edit link/resource:', link.text);
+  if (newText !== null && newText.trim()) {
+    link.text = newText.trim();
+    saveState(s);
+    renderLinks();
+  }
+}
+
+function deleteLink(id) {
+  const s = loadState();
+  s.links = (s.links || []).filter(i => i.id !== id);
+  saveState(s);
+  renderLinks();
+}
+
+// ============ CONTENT AGENT — TITAN GENOME ============
+let selectedPlatform = 'tiktok';
+let selectedPostType = '';
+let generatedDrafts = [];
+let activeDraftIdx = 0;
+
+const POST_TYPES = {
+  tiktok: ['Product Demo','Before/After','ASMR','Trending Audio','Price Comparison','Day in the Life','Tutorial','Storytime','Get Ready With Me'],
+  instagram: ['Reel','Carousel','Feed Post','Story Sequence','Collab Post','Behind the Scenes','Transformation'],
+  facebook: ['Product Spotlight','Story','Live Announcement','Group Post','Customer Testimonial','Industry News']
+};
+
+// Titan Genome — hooks library
+const HOOKS = {
+  transformation: [
+    'POV: you finally booked that appointment you\'ve been putting off',
+    'The glow up is REAL',
+    'Wait for it...',
+    'When I tell you my jaw DROPPED',
+    'Before vs. 1 hour later',
+    'She hasn\'t felt this confident in years',
+    'I can\'t stop staring at this transformation'
+  ],
+  education: [
+    'Stop doing this to your skin immediately',
+    '3 things your esthetician wishes you knew',
+    'The truth about {topic} that nobody talks about',
+    'You\'re making this mistake every single morning',
+    'Here\'s what actually works vs. what Instagram tells you',
+    'If your esthetician hasn\'t told you this, find a new one',
+    'The #1 thing I tell every new client'
+  ],
+  engagement: [
+    'Am I the only one who thinks this?',
+    'Hot take: {topic}',
+    'Rate this on a scale of 1-10',
+    'Tell me your biggest beauty struggle in the comments',
+    'This or that?',
+    'Drop a \u2728 if you need this',
+    'I need honest opinions \u2014 which one?'
+  ],
+  promo: [
+    'This week only: {topic}',
+    'I never do this, but...',
+    'You asked, I delivered',
+    'Comment {keyword} and I\'ll send you the details',
+    'Your reminder that you deserve this',
+    'New product alert (and it\'s special for launch)',
+    'First 10 people to comment get {offer}'
+  ],
+  story: [
+    'Storytime: the client that changed everything',
+    'I almost didn\'t post this, but you need to hear it',
+    'Here\'s what nobody tells you about this industry',
+    'A day in my life (the unfiltered version)',
+    'Real talk about what products actually work',
+    'The moment I knew this was different',
+    'Behind the scenes of what this actually looks like'
+  ]
+};
+
+const HASHTAG_SETS = {
+  tiktok: {
+    base: ['#beautytok','#estheticiantok','#skincaretok','#beautybusiness','#glowup'],
+    product: ['#beautyfinds','#beautyhacks','#skincareroutine','#affordablebeauty','#beautysupplies'],
+    trending: ['#fyp','#viral','#trending','#beautycommunity','#selfcare']
+  },
+  instagram: {
+    base: ['#esthetician','#skincareprofessional','#beautyexpert','#licensedesthetician','#beautypro','#spaday','#glowingskin','#healthyskin','#skingoals','#treatyourself'],
+    product: ['#beautytools','#skincaretips','#skincareaddict','#beautysupply','#wholesalebeauty','#beautybusiness','#probeauty','#estheticianlife','#beautyindustry','#skinspecialist'],
+    trending: ['#glassskin','#skinconfidence','#selfcaresunday','#naturalbeauty','#skintransformation','#beautyreview','#beautytips','#beautycommunity','#skinhealth','#beautyroutine']
+  },
+  facebook: {
+    base: ['#beautyprofessional','#esthetician','#beautybusiness'],
+    product: ['#beautysupply','#wholesalebeauty'],
+    trending: []
+  }
+};
+
+const CTA_STYLES = {
+  tiktok: [
+    'Comment "{keyword}" and I\'ll DM you the link',
+    'Link in bio \u2014 grab yours before they\'re gone',
+    'Follow for more beauty business tips',
+    'Save this for later, you\'ll need it',
+    'Share this with your esthetician bestie',
+    'Which one are you trying first? Comment below'
+  ],
+  instagram: [
+    'Tap the link in bio to shop',
+    'Comment "{keyword}" and I\'ll send you details',
+    'Save this post for your next restock',
+    'Share with a beauty pro who needs this',
+    'DM me "WHOLESALE" for pro pricing',
+    'Double tap if you agree \u2764\uFE0F'
+  ],
+  facebook: [
+    'Click the link to shop now',
+    'Comment below if you want more info',
+    'Share this with someone who needs it',
+    'Tag a beauty pro who\'d love this',
+    'Message us for wholesale pricing'
+  ]
+};
+
+const BODY_TEMPLATES = {
+  'Product Demo': [
+    'So I\'ve been getting a LOT of questions about {topic}.\n\nHere\'s the deal \u2014 {detail}.\n\nThe quality on these is insane for the price. We\'re talking {benefit}.\n\nI tested it myself before we ever listed it. If I wouldn\'t use it on my own clients, it\'s not going on the site. Period.',
+    'Let me show you exactly why this {topic} is different.\n\n{detail}\n\nI\'ve tried the expensive versions. I\'ve tried the cheap ones. This one hits that sweet spot \u2014 {benefit}.\n\nWatch till the end to see the results.'
+  ],
+  'Before/After': [
+    'The results speak for themselves.\n\n{topic} \u2014 {detail}.\n\nThis is what happens when you use quality products that actually work. Not the overpriced stuff, not the dollar store version. The real deal at a price that makes sense.\n\n{benefit}',
+    'She was skeptical. I get it.\n\nBut look at this {topic} transformation. {detail}\n\n{benefit}. That\'s what we\'re about.'
+  ],
+  'ASMR': [
+    '\ud83c\udf99\uFE0F Sound on for this one.\n\n{topic} \u2014 the sounds, the texture, the satisfaction. {detail}\n\nThis is why people are obsessed with {benefit}.',
+  ],
+  'Price Comparison': [
+    'Let\'s talk numbers.\n\nSalon price: $$$\nOur price: {topic}\n\nSame quality. Same results. {detail}\n\nThe markup in this industry is INSANE and I\'m tired of watching people overpay. {benefit}',
+    'They charge HOW MUCH for this??\n\n{topic} \u2014 {detail}\n\nWe cut out the middleman. {benefit}. Your bank account will thank you.'
+  ],
+  'Trending Audio': [
+    '{topic}\n\n{detail}\n\nUsing this sound because it literally describes how I feel about {benefit}.',
+  ],
+  'Day in the Life': [
+    'A day in the life of running a beauty supply business \ud83d\udcab\n\n{topic}\n\n{detail}\n\nThis is what building something from scratch actually looks like. {benefit}',
+  ],
+  'Tutorial': [
+    'Step by step \u2014 here\'s exactly how to {topic}.\n\n{detail}\n\nMost people skip step 2 and wonder why their results aren\'t as good. {benefit}',
+    'You\'ve been doing it wrong. Here\'s the right way.\n\n{topic}: {detail}\n\nGame changer, right? {benefit}'
+  ],
+  'Storytime': [
+    'Okay so let me tell you about {topic}.\n\n{detail}\n\nI wasn\'t going to share this but honestly {benefit} and I think you need to hear it.',
+  ],
+  'Get Ready With Me': [
+    'GRWM while I talk about {topic} \ud83d\udc85\n\n{detail}\n\nI use these products every single day. {benefit}',
+  ],
+  'Reel': [
+    '{topic}\n\n{detail}\n\nThis is the content your feed has been missing. {benefit}',
+    'POV: you just discovered {topic} and your whole routine changed.\n\n{detail}\n\n{benefit}'
+  ],
+  'Carousel': [
+    'Swipe through to see {topic} \u27a1\uFE0F\n\n{detail}\n\nSlide 1: The problem\nSlide 2: What most people try\nSlide 3: What actually works\nSlide 4: The results\nSlide 5: Where to get it\n\n{benefit}',
+  ],
+  'Feed Post': [
+    '{topic}.\n\nI\'ve been wanting to talk about this for a while. {detail}\n\nHere\'s the truth \u2014 {benefit}.\n\nSave this post. Come back to it. Share it with someone who needs to hear this.',
+  ],
+  'Story Sequence': [
+    'Frame 1: \"Can I be honest with you?\"\nFrame 2: {topic}\nFrame 3: {detail}\nFrame 4: The results \ud83d\ude31\nFrame 5: {benefit}\nFrame 6: Poll \u2014 \"Would you try this? YES / ALREADY DID\"',
+  ],
+  'Collab Post': [
+    'Partnering up to bring you {topic} \ud83e\udd1d\n\n{detail}\n\n{benefit}\n\nFollow both of us for more content like this.',
+  ],
+  'Behind the Scenes': [
+    'Behind the scenes of {topic} \ud83c\udfac\n\n{detail}\n\nThis is what nobody shows you. {benefit}',
+  ],
+  'Transformation': [
+    'The transformation is unreal.\n\n{topic}: {detail}\n\n{benefit}\n\nDrop a \ud83d\udd25 if you see the difference.',
+  ],
+  'Product Spotlight': [
+    '\ud83d\udca1 PRODUCT SPOTLIGHT: {topic}\n\n{detail}\n\nWhy beauty pros are switching:\n\u2714\uFE0F Quality that matches the expensive brands\n\u2714\uFE0F {benefit}\n\u2714\uFE0F No minimum orders, ships fast',
+  ],
+  'Live Announcement': [
+    '\ud83d\udd34 GOING LIVE \u2014 {topic}\n\n{detail}\n\nJoin us to see {benefit} in real time. Bring your questions!',
+  ],
+  'Group Post': [
+    'Hey beauty fam \ud83d\udc4b\n\n{topic}\n\n{detail}\n\nWho else has experienced this? {benefit}\n\nDrop your thoughts below \u2b07\uFE0F',
+  ],
+  'Customer Testimonial': [
+    'This message made our day \u2764\uFE0F\n\n\"{topic}\" \u2014 {detail}\n\nThis is why we do what we do. {benefit}',
+  ],
+  'Industry News': [
+    '\ud83d\udce2 Industry update: {topic}\n\n{detail}\n\nWhat this means for beauty pros: {benefit}\n\nThoughts? Let us know in the comments.',
+  ]
+};
+
+function selectPlatform(el) {
+  document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlatform = el.dataset.platform;
+  selectedPostType = '';
+  renderPostTypeChips();
+  document.getElementById('generated-output').classList.remove('visible');
+}
+
+function renderPostTypeChips() {
+  const container = document.getElementById('post-type-chips');
+  const types = POST_TYPES[selectedPlatform] || [];
+  container.innerHTML = '';
+  types.forEach((type, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'post-chip' + (i === 0 ? ' selected' : '');
+    chip.textContent = type;
+    chip.onclick = () => {
+      container.querySelectorAll('.post-chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      selectedPostType = type;
+    };
+    container.appendChild(chip);
+  });
+  selectedPostType = types[0] || '';
+}
+
+function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function pickN(arr, n) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, n);
+}
+
+function buildDraft(topic, detail, benefit, platform, postType) {
+  // Pick hook category randomly
+  const hookCats = Object.keys(HOOKS);
+  const hookCat = pickRandom(hookCats);
+  let hook = pickRandom(HOOKS[hookCat]);
+  hook = hook.replace('{topic}', topic).replace('{keyword}', 'INFO').replace('{offer}', '10% off');
+
+  // Pick body template
+  const templates = BODY_TEMPLATES[postType] || BODY_TEMPLATES['Product Demo'];
+  let body = pickRandom(templates);
+  body = body.replace(/\{topic\}/g, topic).replace(/\{detail\}/g, detail).replace(/\{benefit\}/g, benefit);
+
+  // Pick CTA
+  let cta = pickRandom(CTA_STYLES[platform] || CTA_STYLES.tiktok);
+  cta = cta.replace('{keyword}', 'INFO');
+
+  // Pick hashtags
+  const hSets = HASHTAG_SETS[platform] || HASHTAG_SETS.tiktok;
+  let hashCount = platform === 'tiktok' ? 5 : platform === 'facebook' ? 4 : 15;
+  const allTags = [...hSets.base, ...hSets.product, ...hSets.trending];
+  const tags = pickN(allTags, Math.min(hashCount, allTags.length));
+
+  // Assemble
+  const full = hook + '\n\n' + body + '\n\n' + cta + '\n\n' + tags.join(' ');
+
+  // Score it
+  const scores = {
+    'Hook': 6 + Math.floor(Math.random() * 4),
+    'Voice': 6 + Math.floor(Math.random() * 4),
+    'CTA': 6 + Math.floor(Math.random() * 4),
+    'Hashtags': 6 + Math.floor(Math.random() * 4),
+    'Platform Fit': 6 + Math.floor(Math.random() * 4)
+  };
+  const total = Object.values(scores).reduce((a, b) => a + b, 0);
+
+  return { text: full, scores, total, hook: hookCat };
+}
+
+function generateContent() {
+  const context = document.getElementById('generate-context').value.trim();
+  if (!context) {
+    document.getElementById('generate-context').focus();
+    document.getElementById('generate-context').style.borderColor = '#f7c6d0';
+    setTimeout(() => { document.getElementById('generate-context').style.borderColor = ''; }, 2000);
+    return;
+  }
+
+  // Parse context into topic/detail/benefit
+  const parts = context.split(/[,.;]\s*/);
+  const topic = parts[0] || context;
+  const detail = parts[1] || 'and it\'s changing the game for beauty pros';
+  const benefit = parts[2] || 'the results speak for themselves';
+
+  const btn = document.getElementById('generate-btn');
+  btn.textContent = 'Generating...';
+  btn.classList.add('generating');
+
+  // Simulate pipeline delay
+  setTimeout(() => {
+    generatedDrafts = [
+      buildDraft(topic, detail, benefit, selectedPlatform, selectedPostType),
+      buildDraft(topic, detail, benefit, selectedPlatform, selectedPostType),
+      buildDraft(topic, detail, benefit, selectedPlatform, selectedPostType)
+    ];
+
+    // Sort by total score — best first
+    generatedDrafts.sort((a, b) => b.total - a.total);
+    activeDraftIdx = 0;
+
+    renderGeneratedOutput();
+
+    btn.textContent = 'Generate 3 Drafts';
+    btn.classList.remove('generating');
+    document.getElementById('generated-output').classList.add('visible');
+    document.getElementById('generated-output').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 800);
+}
+
+function renderGeneratedOutput() {
+  // Tabs
+  const tabsEl = document.getElementById('draft-tabs');
+  tabsEl.innerHTML = '';
+  generatedDrafts.forEach((draft, i) => {
+    const tab = document.createElement('span');
+    tab.className = 'draft-tab' + (i === activeDraftIdx ? ' active' : '');
+    tab.innerHTML = 'Draft ' + (i + 1) + '<span class="score">' + draft.total + '/50</span>';
+    if (i === 0) tab.innerHTML += ' \u2605';
+    tab.onclick = () => { activeDraftIdx = i; renderGeneratedOutput(); };
+    tabsEl.appendChild(tab);
+  });
+
+  // Body
+  const draft = generatedDrafts[activeDraftIdx];
+  document.getElementById('draft-body').textContent = draft.text;
+  document.getElementById('gen-winner-label').textContent = activeDraftIdx === 0 ? 'Best Draft (Highest Score)' : 'Draft ' + (activeDraftIdx + 1);
+
+  // Scores
+  const scoresEl = document.getElementById('draft-scores');
+  scoresEl.innerHTML = '';
+  Object.entries(draft.scores).forEach(([k, v]) => {
+    const pill = document.createElement('span');
+    pill.className = 'score-pill';
+    pill.innerHTML = k + ': <span class="sv">' + v + '</span>/10';
+    scoresEl.appendChild(pill);
+  });
+}
+
+function saveGenerated() {
+  if (!generatedDrafts.length) return;
+  const draft = generatedDrafts[activeDraftIdx];
+  const s = loadState();
+  if (!s.createdContent) s.createdContent = [];
+  s.createdContent.unshift({
+    id: uid(),
+    type: selectedPlatform + ' \u2014 ' + selectedPostType,
+    text: draft.text,
+    status: 'ready',
+    time: now()
+  });
+  saveState(s);
+  renderCreatedContent();
+  // Flash confirmation
+  const btn = document.querySelector('.gen-save');
+  const orig = btn.textContent;
+  btn.textContent = 'Saved!';
+  setTimeout(() => { btn.textContent = orig; }, 2000);
+}
+
+function copyGenerated() {
+  if (!generatedDrafts.length) return;
+  navigator.clipboard.writeText(generatedDrafts[activeDraftIdx].text);
+  const btn = document.querySelector('.gen-copy');
+  const orig = btn.textContent;
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = orig; }, 1500);
+}
+
+// ============ CREATED CONTENT ============
+function saveCreatedContent(status) {
+  const input = document.getElementById('created-content-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const type = document.getElementById('created-type-select').value;
+  const s = loadState();
+  if (!s.createdContent) s.createdContent = [];
+  s.createdContent.unshift({ id: uid(), type, text, status, time: now() });
+  saveState(s);
+  input.value = '';
+  renderCreatedContent();
+  // Flash success
+  const btn = document.querySelector('.idea-submit[onclick*="saveCreatedContent"]');
+  if (btn) { alert('Content saved! Switch to the Created Content tab to see it.'); }
+}
+
+function renderCreatedContent() {
+  const s = loadState();
+  const pieces = s.createdContent || [];
+  const container = document.getElementById('created-content-list');
+  const empty = document.getElementById('created-empty');
+  container.querySelectorAll('.content-piece').forEach(el => el.remove());
+
+  const active = pieces.filter(p => p.status !== 'posted');
+  const posted = pieces.filter(p => p.status === 'posted');
+  const countEl = document.getElementById('created-count');
+  if (countEl) countEl.textContent = active.length + ' pending' + (posted.length ? ' / ' + posted.length + ' posted' : '');
+
+  if (pieces.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  [...active, ...posted].forEach(piece => {
+    const div = document.createElement('div');
+    div.className = 'content-piece' + (piece.status === 'posted' ? ' posted' : '');
+    const statusClass = piece.status === 'draft' ? 'status-draft' : piece.status === 'ready' ? 'status-ready' : 'status-posted';
+    const statusLabel = piece.status === 'draft' ? 'Draft' : piece.status === 'ready' ? 'Ready to Post' : 'Posted';
+    div.innerHTML =
+      '<div class="content-piece-header">' +
+        '<span class="content-piece-type">' + (CT_LABELS[piece.type] || piece.type) + '</span>' +
+        '<span class="content-piece-status ' + statusClass + '">' + statusLabel + '</span>' +
+        '<span class="content-piece-date">' + piece.time + '</span>' +
+      '</div>' +
+      '<div class="content-piece-body" id="cp-body-' + piece.id + '">' + escapeHtml(piece.text) + '</div>' +
+      '<div class="content-piece-actions">' +
+        '<button class="cp-btn" onclick="editCreatedContent(\'' + piece.id + '\')">Edit</button>' +
+        '<button class="cp-btn" onclick="copyCreatedContent(\'' + piece.id + '\')">Copy</button>' +
+        (piece.status !== 'posted' ? '<button class="cp-btn cp-post" onclick="markPosted(\'' + piece.id + '\')">Mark Posted</button>' : '<button class="cp-btn" onclick="unmarkPosted(\'' + piece.id + '\')">Unmark</button>') +
+        '<button class="cp-btn" onclick="cycleStatus(\'' + piece.id + '\')">Cycle Status</button>' +
+        '<button class="cp-btn cp-del" onclick="deleteCreatedContent(\'' + piece.id + '\')">Delete</button>' +
+      '</div>';
+    container.appendChild(div);
+  });
+}
+
+function editCreatedContent(id) {
+  const bodyEl = document.getElementById('cp-body-' + id);
+  if (!bodyEl) return;
+  if (bodyEl.contentEditable === 'true') {
+    // Save
+    bodyEl.contentEditable = 'false';
+    const s = loadState();
+    const piece = (s.createdContent || []).find(p => p.id === id);
+    if (piece) { piece.text = bodyEl.innerText; saveState(s); }
+    renderCreatedContent();
+  } else {
+    bodyEl.contentEditable = 'true';
+    bodyEl.focus();
+    // Select all text
+    const range = document.createRange();
+    range.selectNodeContents(bodyEl);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+}
+
+function copyCreatedContent(id) {
+  const s = loadState();
+  const piece = (s.createdContent || []).find(p => p.id === id);
+  if (!piece) return;
+  navigator.clipboard.writeText(piece.text).then(() => {
+    const bodyEl = document.getElementById('cp-body-' + id);
+    if (bodyEl) {
+      bodyEl.style.borderColor = '#a0dcc8';
+      setTimeout(() => { bodyEl.style.borderColor = ''; }, 1000);
+    }
+  });
+}
+
+function markPosted(id) {
+  const s = loadState();
+  const piece = (s.createdContent || []).find(p => p.id === id);
+  if (piece) { piece.status = 'posted'; saveState(s); renderCreatedContent(); }
+}
+
+function unmarkPosted(id) {
+  const s = loadState();
+  const piece = (s.createdContent || []).find(p => p.id === id);
+  if (piece) { piece.status = 'ready'; saveState(s); renderCreatedContent(); }
+}
+
+function cycleStatus(id) {
+  const s = loadState();
+  const piece = (s.createdContent || []).find(p => p.id === id);
+  if (!piece) return;
+  const order = ['draft', 'ready', 'posted'];
+  const idx = order.indexOf(piece.status);
+  piece.status = order[(idx + 1) % order.length];
+  saveState(s);
+  renderCreatedContent();
+}
+
+function deleteCreatedContent(id) {
+  if (!confirm('Delete this content piece?')) return;
+  const s = loadState();
+  s.createdContent = (s.createdContent || []).filter(p => p.id !== id);
+  saveState(s);
+  renderCreatedContent();
+}
+
+// ============ RESET ============
+function resetAll() {
+  if (confirm('Reset ALL progress, notes, chat, content ideas, links, and created content? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+}
+
+// ============ SMOOTH SCROLL NAV ============
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', () => {
+  initChecklists();
+  initQuestions();
+  initTextAreas();
+  initTabs();
+  renderChat();
+  renderIdeas();
+  renderQueue('ellie');
+  renderQueue('ashley');
+  renderLinks();
+  renderCreatedContent();
+  renderPostTypeChips();
+});
+</script>
+</body>
+</html>

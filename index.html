@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Beauty Business — Full Plan</title>
+<title>Allure — Full Plan</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
@@ -1037,6 +1037,97 @@
     font-size: 13px;
   }
 
+  /* Call notes */
+  .call-note-card {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .call-note-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .call-note-card ul { list-style: none; padding: 0; }
+  .call-note-card li {
+    font-size: 13px;
+    color: #999;
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .call-note-card li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: #444;
+  }
+  .call-note-card li strong { color: #ddd; }
+
+  /* Content plan */
+  .cp-week {
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .cp-week-header {
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cp-week-header:hover { background: rgba(255,255,255,0.02); }
+  .cp-week-header h4 { font-size: 14px; font-weight: 700; }
+  .cp-week-header .cp-toggle { color: #444; font-size: 16px; transition: transform 0.3s; }
+  .cp-week-header .cp-toggle.open { transform: rotate(180deg); }
+  .cp-week-body { display: none; padding: 0 18px 16px; }
+  .cp-week-body.open { display: block; }
+  .cp-day {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #141414;
+    align-items: start;
+  }
+  .cp-day:last-child { border-bottom: none; }
+  .cp-day-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    padding-top: 2px;
+  }
+  .cp-day-ellie, .cp-day-ashley {
+    font-size: 12px;
+    color: #999;
+    line-height: 1.5;
+  }
+  .cp-day-ellie strong { color: #f7c6d0; }
+  .cp-day-ashley strong { color: #c9a0dc; }
+  .cp-pillar {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+  .pillar-demo { background: rgba(201,160,220,0.12); color: #c9a0dc; }
+  .pillar-edu { background: rgba(160,190,253,0.12); color: #a0befd; }
+  .pillar-story { background: rgba(247,198,208,0.12); color: #f7c6d0; }
+  .pillar-promo { background: rgba(253,214,160,0.12); color: #fdd6a0; }
+  .pillar-social { background: rgba(160,220,200,0.12); color: #a0dcc8; }
+  .pillar-bts { background: rgba(255,255,255,0.06); color: #888; }
+
   /* Chat / Activity feed */
   .chat-container {
     background: #141414;
@@ -1214,7 +1305,7 @@
 
 <!-- Navigation -->
 <nav class="nav">
-  <div class="nav-brand">The Beauty Business</div>
+  <div class="nav-brand">Allure</div>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#niches">Niches</a></li>
@@ -1223,8 +1314,10 @@
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#financials">Financials</a></li>
     <li><a href="#checklist">Checklist</a></li>
+    <li><a href="#call-notes">Call Notes</a></li>
+    <li><a href="#content-plan">Content Plan</a></li>
     <li><a href="#chat">Chat</a></li>
-    <li><a href="#content-studio">Content</a></li>
+    <li><a href="#content-studio">Studio</a></li>
     <li><a href="#agreement">Agreement</a></li>
   </ul>
 </nav>
@@ -1233,7 +1326,7 @@
 
   <!-- Header -->
   <div class="header">
-    <h1>The Beauty Business</h1>
+    <h1>Allure</h1>
     <p class="subtitle">Full Business Plan &bull; April 2026</p>
     <p class="context">
       <strong>Two products. One customer. One funnel.</strong><br>
@@ -1687,6 +1780,315 @@
         <tr><td style="color:#ddd; font-weight:600;">Friday</td><td>Testimonial / reply-to-comment / ASMR</td><td>Supplier management + product research</td></tr>
         <tr><td style="color:#ddd; font-weight:600;">Saturday</td><td>IG Stories only (light day)</td><td>Podcast content or off</td></tr>
       </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== CALL NOTES — April 2 ========== -->
+  <div class="section" id="call-notes">
+    <div class="section-label">Call Notes</div>
+    <h2 class="section-title blue">April 2 Call &mdash; Key Decisions</h2>
+    <p style="color:#666; font-size:13px; margin-bottom:16px;">Extracted from today's team call. These override earlier assumptions in the plan.</p>
+
+    <div class="grid-2" style="margin-bottom:16px;">
+      <div class="call-note-card">
+        <h4 class="green">Decisions Made</h4>
+        <ul>
+          <li><strong>Brand name: &ldquo;Allure&rdquo;</strong> &mdash; Ashlee &amp; Ellie decided</li>
+          <li><strong>Ellie&rsquo;s account:</strong> Keep personal on the side, new brand account, cross-promote / repost</li>
+          <li><strong>Podcast: Both together AND individual</strong> &mdash; Mixed episodes, flexible format</li>
+          <li><strong>Podcast audience: B2B + B2C combined</strong> &mdash; Esthetician-to-esthetician AND consumer-facing. The audience itself converts (estheticians buy from what they watch)</li>
+          <li><strong>AI video: NO</strong> &mdash; Kills credibility, looks fake. AI handles text/captions only. Real video from Ashlee &amp; Ellie</li>
+          <li><strong>Payment: Compare Stripe vs Wave</strong> &mdash; Wave has accounting built in (3.4%+$0.60), Stripe cheaper (~2.9%)</li>
+          <li><strong>GHL: Wait until Tuesday</strong></li>
+          <li><strong>Cold email: Weekend meeting</strong> to review domains &amp; strategy. 5 pre-warmed + 5 warming</li>
+        </ul>
+      </div>
+      <div class="call-note-card">
+        <h4 class="gold">Monthly Costs Confirmed</h4>
+        <ul>
+          <li><strong>GHL:</strong> $97/mo</li>
+          <li><strong>SmartLead:</strong> $94/mo</li>
+          <li><strong>Cold email domains:</strong> ~$300 setup, ~$200/mo ongoing</li>
+          <li><strong>Metricool:</strong> ~$50/mo (social calendar / auto-posting)</li>
+          <li><strong>Total: ~$440/mo + $300 first-time setup</strong></li>
+        </ul>
+        <h4 class="pink" style="margin-top:16px;">Immediate Action Items</h4>
+        <ul>
+          <li><strong>Ashlee:</strong> Start checklist, domain purchase, business email, UBC training today</li>
+          <li><strong>Ellie:</strong> UBC training today, content ideas into Claude, send to Ashlee</li>
+          <li><strong>Justin:</strong> Update plan site, create content plan, send recording/transcript</li>
+          <li><strong>Weekend:</strong> Cold email review meeting (all 3)</li>
+          <li><strong>Tuesday:</strong> GHL subscription goes live</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="call-note-card">
+        <h4 class="purple">Ashlee&rsquo;s Key Insights</h4>
+        <ul>
+          <li>Every product she owns was <strong>vetted through Instagram videos</strong> &mdash; estheticians rely 100% on online education because beauty school teaches nothing about what to buy</li>
+          <li>The podcast audience (estheticians) <strong>WILL buy directly from listening</strong> &mdash; not just lead gen, the audience itself converts</li>
+          <li><strong>Esthetician discount with license verification</strong> is critical &mdash; &ldquo;we sign up for ALL discounts&rdquo;</li>
+          <li><strong>Petra Wholesaling</strong> can white label, custom package, hold inventory &mdash; future subscription boxes</li>
+          <li><strong>PDRN/salmon serum</strong> selling crazy &mdash; bundle opportunity ASAP</li>
+          <li>Both on a <strong>90-day hard challenge</strong> = body contouring content opportunity</li>
+          <li>Can get content at <strong>electrolysis school</strong> (laser procedures, day-at-school)</li>
+          <li><strong>Beauty school partnership as official supplier</strong> is the long-term play</li>
+          <li>Wants podcast to cover both basic &amp; medical esthetics so she can <strong>sit at bigger tables</strong> long-term when she franchises</li>
+          <li>&ldquo;This industry is a lot deeper than what people see&rdquo; &mdash; the <strong>conversation alone</strong> builds credibility and sells</li>
+        </ul>
+      </div>
+      <div class="call-note-card">
+        <h4 class="pink">Content Types Confirmed</h4>
+        <ul>
+          <li><strong>Product demos</strong> &mdash; but can&rsquo;t overuse machines on face (limited frequency)</li>
+          <li><strong>Get Ready With Me (GRWM)</strong> &mdash; Ellie suggested, Ashlee loved it</li>
+          <li><strong>&ldquo;What products do I personally use?&rdquo;</strong> &mdash; Ellie&rsquo;s idea, relatable</li>
+          <li><strong>Day in the life / day at school</strong> &mdash; Ashlee at electrolysis, Ellie at beauty school</li>
+          <li><strong>Behind the scenes of building the business</strong></li>
+          <li><strong>Unboxings / price comparisons</strong></li>
+          <li><strong>Expert tips &amp; education</strong> &mdash; &ldquo;just being real on video&rdquo;</li>
+          <li><strong>Before/after</strong> &mdash; 90-day challenge progress (body contouring)</li>
+          <li><strong>Trending audio</strong></li>
+          <li><strong>Podcast clips</strong> (individual + together)</li>
+          <li><strong>NO AI-generated video</strong> &mdash; text content &amp; captions only</li>
+        </ul>
+        <h4 class="gold" style="margin-top:14px;">Justin&rsquo;s Additions</h4>
+        <ul>
+          <li>Building <strong>Direct Response Marketing Council</strong> &mdash; AI copywriters (Schwartz, Abraham, Kennedy, etc.) deliberate on content briefs</li>
+          <li><strong>&ldquo;Waterworld sand&rdquo;</strong> analogy &mdash; real, unpolished video is the scarcest, most valuable content as AI floods the market</li>
+          <li>Building multi-model framework &mdash; Claude + Codex + Gemini routing work to best model</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ========== 30-DAY CONTENT PLAN ========== -->
+  <div class="section" id="content-plan">
+    <div class="section-label">Content Plan</div>
+    <h2 class="section-title pink">30-Day Content Plan</h2>
+    <p style="color:#666; font-size:13px; margin-bottom:8px;">Built from the April 2 call. Each day has posts for both Ellie (B2C/TikTok/IG) and Ashlee (B2B/Podcast/IG). <strong style="color:#bbb;">5 content pillars</strong> rotate throughout.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+      <span class="cp-pillar pillar-demo">Demo / Product</span>
+      <span class="cp-pillar pillar-edu">Education / Tips</span>
+      <span class="cp-pillar pillar-story">Story / GRWM / BTS</span>
+      <span class="cp-pillar pillar-promo">Promo / Sales</span>
+      <span class="cp-pillar pillar-social">Social Proof / Engagement</span>
+    </div>
+
+    <!-- Week 1 -->
+    <div class="cp-week">
+      <div class="cp-week-header" onclick="toggleWeek(this)">
+        <h4 class="purple">Week 1 &mdash; Launch Week (Warm Market + First Posts)</h4>
+        <span class="cp-toggle">&darr;</span>
+      </div>
+      <div class="cp-week-body">
+        <div style="display:grid; grid-template-columns:90px 1fr 1fr; gap:8px; padding-bottom:6px; border-bottom:1px solid #222;">
+          <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:1px;">Day</div>
+          <div style="font-size:10px; color:#f7c6d0; text-transform:uppercase; letter-spacing:1px;">Ellie (B2C)</div>
+          <div style="font-size:10px; color:#c9a0dc; text-transform:uppercase; letter-spacing:1px;">Ashlee (B2B)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 1<br><span style="color:#444;font-size:10px;">Mon</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-story">Story</span> <strong>&ldquo;We&rsquo;re building something&rdquo;</strong> &mdash; BTS of setting up the business. Raw, real, halfway-done makeup. &ldquo;Two beauty school girls starting a supply company&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-story">BTS</span> <strong>&ldquo;Day 1 of our business&rdquo;</strong> &mdash; Behind the scenes. Showing the checklist, the plan, being real about starting from scratch</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 2<br><span style="color:#444;font-size:10px;">Tue</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>&ldquo;Products I personally use as an esthetician&rdquo;</strong> &mdash; Show actual products from her cabinet. Authentic, no script. &ldquo;I vetted every single one of these through IG&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;What beauty school DOESN&rsquo;T teach you&rdquo;</strong> &mdash; The #1 thing new grads struggle with. Hook: &ldquo;3 things your esthetician wishes you knew&rdquo;</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 3<br><span style="color:#444;font-size:10px;">Wed</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-social">Engagement</span> <strong>&ldquo;What&rsquo;s your holy grail product?&rdquo;</strong> &mdash; Engagement post. Ask followers to comment their fave. Reply to every comment within 1 hour</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-story">Story</span> <strong>&ldquo;Day at electrolysis school&rdquo;</strong> &mdash; Film laser procedures, the experience, what it&rsquo;s actually like. Real content from school</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 4<br><span style="color:#444;font-size:10px;">Thu</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>Unboxing: First products arrive</strong> &mdash; Open test orders on camera. React genuinely. &ldquo;$15 lashes vs $50 &mdash; can you tell?&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-demo">Demo</span> <strong>Unboxing together</strong> &mdash; Film with Ellie if possible. Show quality, compare to what they paid before</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 5<br><span style="color:#444;font-size:10px;">Fri</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-promo">Promo</span> <strong>&ldquo;The site is LIVE&rdquo;</strong> &mdash; Launch announcement. Code LAUNCH for 15% off. Link in bio. ManyChat trigger: comment &ldquo;SHOP&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-promo">Promo</span> <strong>&ldquo;We just launched&rdquo;</strong> &mdash; Share to stories + feed. DM 10 esthetician connections with pro price list</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 6<br><span style="color:#444;font-size:10px;">Sat</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-story">GRWM</span> <strong>Get Ready With Me + product talk</strong> &mdash; Use products from the site while getting ready. Casual, real vibes. Trending audio</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-social">Social Proof</span> <strong>IG Stories only</strong> &mdash; Repost Ellie&rsquo;s content, share any early orders/DMs (light day)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 7<br><span style="color:#444;font-size:10px;">Sun</span></div>
+          <div class="cp-day-ellie" style="grid-column:2/4; color:#666; font-style:italic;">Batch filming day &mdash; Film 5&ndash;7 videos for Week 2. Write captions. Schedule in Metricool. Apply UBC SEO training to hashtags.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="cp-week">
+      <div class="cp-week-header" onclick="toggleWeek(this)">
+        <h4 class="pink">Week 2 &mdash; Build Authority + Engagement</h4>
+        <span class="cp-toggle">&darr;</span>
+      </div>
+      <div class="cp-week-body">
+        <div style="display:grid; grid-template-columns:90px 1fr 1fr; gap:8px; padding-bottom:6px; border-bottom:1px solid #222;">
+          <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:1px;">Day</div>
+          <div style="font-size:10px; color:#f7c6d0; text-transform:uppercase; letter-spacing:1px;">Ellie (B2C)</div>
+          <div style="font-size:10px; color:#c9a0dc; text-transform:uppercase; letter-spacing:1px;">Ashlee (B2B)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 8<br><span style="color:#444;font-size:10px;">Mon</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;Stop doing this to your skin&rdquo;</strong> &mdash; Common mistake post. Hook in first 3 sec. Text overlay for mute viewers</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;Where to actually buy quality supplies&rdquo;</strong> &mdash; Talk about how every esthetician struggles to find good products. Segue to the site</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 9<br><span style="color:#444;font-size:10px;">Tue</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>PDRN/Salmon serum demo</strong> &mdash; &ldquo;The #1 trending ingredient right now.&rdquo; Show application, texture, results. Viral potential</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-demo">Demo</span> <strong>Machine demo at school</strong> &mdash; Film during electrolysis training. Show equipment in action. &ldquo;This is what I&rsquo;m learning&rdquo;</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 10<br><span style="color:#444;font-size:10px;">Wed</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-social">Engagement</span> <strong>&ldquo;Rate my skincare routine 1&ndash;10&rdquo;</strong> &mdash; Show full routine, ask for ratings. Drive comments for algorithm</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-story">Story</span> <strong>&ldquo;90-day challenge update&rdquo;</strong> &mdash; Body contouring progress. Before/after. Real, vulnerable content</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 11<br><span style="color:#444;font-size:10px;">Thu</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-story">Trending</span> <strong>Trending audio + product showcase</strong> &mdash; Pick a viral sound, overlay product visuals. Quick cut edit in CapCut</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-promo">Promo</span> <strong>&ldquo;Licensed estheticians get a discount&rdquo;</strong> &mdash; Announce pro pricing tier. &ldquo;Put in your license number, get wholesale access&rdquo;</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 12<br><span style="color:#444;font-size:10px;">Fri</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-social">Social Proof</span> <strong>Reply to comments / testimonial</strong> &mdash; Screen record best comments, stitch/duet. &ldquo;Y&rsquo;all are too sweet&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;E vs A &mdash; what&rsquo;s the difference?&rdquo;</strong> &mdash; Explain esthetician (E) vs aesthetician (A). Industry knowledge flex</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 13&ndash;14<br><span style="color:#444;font-size:10px;">Sat&ndash;Sun</span></div>
+          <div class="cp-day-ellie" style="grid-column:2/4; color:#666; font-style:italic;">Sat: IG Stories only (light day). Sun: Batch filming for Week 3 + schedule in Metricool</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="cp-week">
+      <div class="cp-week-header" onclick="toggleWeek(this)">
+        <h4 class="gold">Week 3 &mdash; Podcast Launch + Cold Email Live</h4>
+        <span class="cp-toggle">&darr;</span>
+      </div>
+      <div class="cp-week-body">
+        <div style="display:grid; grid-template-columns:90px 1fr 1fr; gap:8px; padding-bottom:6px; border-bottom:1px solid #222;">
+          <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:1px;">Day</div>
+          <div style="font-size:10px; color:#f7c6d0; text-transform:uppercase; letter-spacing:1px;">Ellie (B2C)</div>
+          <div style="font-size:10px; color:#c9a0dc; text-transform:uppercase; letter-spacing:1px;">Ashlee (B2B)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 15<br><span style="color:#444;font-size:10px;">Mon</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>Price comparison Reel</strong> &mdash; &ldquo;Salon charges $200 for this. We sell the machine for $X.&rdquo; Side by side</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-story">Podcast</span> <strong>First podcast episode!</strong> &mdash; Record together or Ashlee solo. &ldquo;Two beauty school girls who said f*** it, let&rsquo;s build&rdquo;</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 16<br><span style="color:#444;font-size:10px;">Tue</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;Things I learned at beauty school this week&rdquo;</strong> &mdash; Weekly school recap. What&rsquo;s real vs BS</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-promo">Promo</span> <strong>Podcast clip #1</strong> &mdash; Best 60-sec moment from ep 1. Post as Reel + TikTok</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 17<br><span style="color:#444;font-size:10px;">Wed</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-story">GRWM</span> <strong>GRWM while talking about the business</strong> &mdash; &ldquo;How we started Allure and what we&rsquo;re doing with it&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-social">Engagement</span> <strong>&ldquo;What do you struggle with most?&rdquo;</strong> &mdash; Poll/question box in stories. Use answers for future content</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 18<br><span style="color:#444;font-size:10px;">Thu</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>Body contouring device demo</strong> &mdash; Use on herself. Show the process. &ldquo;I&rsquo;m on day X of my 90-day hard&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-demo">Demo</span> <strong>Laser content from school</strong> &mdash; &ldquo;A day at my electrolysis school&rdquo; with actual procedures being done</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 19<br><span style="color:#444;font-size:10px;">Fri</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-social">Social Proof</span> <strong>&ldquo;Our first order&rdquo; reaction</strong> &mdash; Genuine reaction to first sales. Celebrate with followers</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;How to start your own supply business&rdquo;</strong> &mdash; Transparency content. People love the journey</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 20&ndash;21<br><span style="color:#444;font-size:10px;">Sat&ndash;Sun</span></div>
+          <div class="cp-day-ellie" style="grid-column:2/4; color:#666; font-style:italic;">Sat: IG Stories only. Sun: Batch filming for Week 4 + review podcast guest replies from cold email</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 4 -->
+    <div class="cp-week">
+      <div class="cp-week-header" onclick="toggleWeek(this)">
+        <h4 class="green">Week 4 &mdash; Scale + Guest Podcast Episodes</h4>
+        <span class="cp-toggle">&darr;</span>
+      </div>
+      <div class="cp-week-body">
+        <div style="display:grid; grid-template-columns:90px 1fr 1fr; gap:8px; padding-bottom:6px; border-bottom:1px solid #222;">
+          <div style="font-size:10px; color:#555; text-transform:uppercase; letter-spacing:1px;">Day</div>
+          <div style="font-size:10px; color:#f7c6d0; text-transform:uppercase; letter-spacing:1px;">Ellie (B2C)</div>
+          <div style="font-size:10px; color:#c9a0dc; text-transform:uppercase; letter-spacing:1px;">Ashlee (B2B)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 22<br><span style="color:#444;font-size:10px;">Mon</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;Your esthetician is lying to you about&hellip;&rdquo;</strong> &mdash; Controversial hook. Industry myth busting</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-story">Podcast</span> <strong>Guest episode #1</strong> &mdash; First cold email reply → podcast guest. Interview an esthetician. Soft wholesale pitch post-call</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 23<br><span style="color:#444;font-size:10px;">Tue</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-demo">Demo</span> <strong>&ldquo;Under $20 products that changed my skin&rdquo;</strong> &mdash; Budget finds from the site. Relatable for consumers</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-promo">Promo</span> <strong>Podcast clip from guest ep</strong> &mdash; Best moment. Guest shares to their audience too = free distribution</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 24<br><span style="color:#444;font-size:10px;">Wed</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-social">Engagement</span> <strong>&ldquo;Am I the only one who&hellip;&rdquo;</strong> &mdash; Relatable esthetician take. Drive shares &amp; saves</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-edu">Education</span> <strong>&ldquo;How I vet every product I sell&rdquo;</strong> &mdash; Process transparency. Builds trust for wholesale</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 25<br><span style="color:#444;font-size:10px;">Thu</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-story">Story</span> <strong>90-day challenge check-in</strong> &mdash; Before/after comparison. Body contouring results so far. Vulnerability sells</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-demo">Demo</span> <strong>PDRN serum deep dive</strong> &mdash; Why it&rsquo;s trending, what it does, where to get it (the site)</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 26<br><span style="color:#444;font-size:10px;">Fri</span></div>
+          <div class="cp-day-ellie"><span class="cp-pillar pillar-promo">Promo</span> <strong>&ldquo;New arrivals just dropped&rdquo;</strong> &mdash; Fresh product showcase. ManyChat trigger: comment &ldquo;NEW&rdquo;</div>
+          <div class="cp-day-ashley"><span class="cp-pillar pillar-social">Social Proof</span> <strong>&ldquo;DMs from estheticians asking about our products&rdquo;</strong> &mdash; Screenshot DMs (with permission). Social proof</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 27&ndash;28<br><span style="color:#444;font-size:10px;">Sat&ndash;Sun</span></div>
+          <div class="cp-day-ellie" style="grid-column:2/4; color:#666; font-style:italic;">Sat: IG Stories only. Sun: Month 1 review &mdash; What worked? What didn&rsquo;t? Plan Month 2 content around top performers</div>
+        </div>
+        <div class="cp-day">
+          <div class="cp-day-label">Day 29&ndash;30</div>
+          <div class="cp-day-ellie" style="grid-column:2/4;">
+            <span class="cp-pillar pillar-social">Review</span> <strong>Month 1 Recap content</strong> &mdash; Both post &ldquo;What we learned in 30 days of building a business.&rdquo; Honest, raw. This type of content goes viral. Show numbers if comfortable. Celebrate wins, acknowledge struggles.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3 class="gold" style="margin-bottom:12px;">Content Rules (from the call)</h3>
+      <div class="grid-2">
+        <div>
+          <ul style="list-style:none; padding:0;">
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Real video only</strong> &mdash; No AI-generated video. It kills credibility</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Be unpolished</strong> &mdash; Halfway done makeup, at the house, just talking. That&rsquo;s the &ldquo;sand&rdquo;</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Hook in first 3 seconds</strong> &mdash; Text overlay so it works on mute</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Reply to EVERY comment</strong> within 1 hour (critical for algorithm)</li>
+          </ul>
+        </div>
+        <div>
+          <ul style="list-style:none; padding:0;">
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">AI handles text</strong> &mdash; Captions, hashtags, scheduling, post copy. Not video</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Batch film Sundays</strong> &mdash; 5&ndash;7 videos in one session, schedule all week</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Cross-promote</strong> &mdash; Ellie reposts to personal, Ashlee shares Ellie&rsquo;s to stories</li>
+            <li style="font-size:13px; color:#999; padding:4px 0; padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:#a0dcc8;">&#10003;</span> <strong style="color:#ddd;">Don&rsquo;t be sales-heavy</strong> &mdash; &ldquo;A super sales-focused page is gonna be weird and boring&rdquo; &mdash; Ashlee</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2895,6 +3297,14 @@ function deleteCreatedContent(id) {
   s.createdContent = (s.createdContent || []).filter(p => p.id !== id);
   saveState(s);
   renderCreatedContent();
+}
+
+// ============ CONTENT PLAN WEEK TOGGLES ============
+function toggleWeek(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.cp-toggle');
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
 }
 
 // ============ RESET ============

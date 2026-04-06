@@ -2387,11 +2387,14 @@
 
     <div class="card" style="margin-top:20px;">
       <h3 class="blue">Notes &amp; Ideas</h3>
-      <p style="font-size:13px; color:#666; margin-bottom:4px;">Jot down anything, click save to submit.</p>
-      <textarea class="notes-area" id="general-notes" placeholder="Drop notes, ideas, questions here..."></textarea>
-      <div style="text-align: right; margin-top: 8px;">
-        <button class="chat-send" id="general-notes-btn" onclick="submitGeneralNotes()" style="padding: 6px 16px; border: 1px solid #333; background: #0e0e0e; color: #a0befd; border-radius: 6px; cursor: pointer;">Submit Note</button>
+      <p style="font-size:13px; color:#666; margin-bottom:4px;">Jot down anything, click save to submit to the team log.</p>
+      <div class="idea-input-row" style="margin-bottom: 16px;">
+        <input class="idea-input" id="general-notes-input" placeholder="Type a note here..." onkeydown="if(event.key==='Enter')submitGeneralNotes()">
+        <button class="chat-send" id="general-notes-btn" onclick="submitGeneralNotes()" style="padding: 10px 16px; border: 1px solid #333; background: #0e0e0e; color: #a0befd; border-radius: 8px; cursor: pointer;">Submit Note</button>
       </div>
+      <ul class="idea-list" id="general-notes-list">
+        <div class="idea-empty" id="general-notes-empty">No notes yet. Add one above.</div>
+      </ul>
     </div>
   </div>
 
@@ -3406,16 +3409,60 @@ function resetAll() {
   }
 }
 
+function renderGeneralNotes() {
+  const state = loadState();
+  if (state.areas && state.areas['general-notes']) {
+    if (!state.generalNotesList) state.generalNotesList = [];
+    state.generalNotesList.unshift({ id: uid(), text: state.areas['general-notes'], time: now() });
+    delete state.areas['general-notes'];
+    saveState(state);
+  }
+
+  const notes = state.generalNotesList || [];
+  const list = document.getElementById('general-notes-list');
+  const empty = document.getElementById('general-notes-empty');
+  if (!list) return;
+
+  list.querySelectorAll('.idea-item').forEach(i => i.remove());
+  if (notes.length === 0) {
+    if (empty) empty.style.display = 'block';
+  } else {
+    if (empty) empty.style.display = 'none';
+    notes.slice().forEach(note => {
+      const li = document.createElement('li');
+      li.className = 'idea-item';
+      li.innerHTML = '<div class="idea-text" style="color:#ddd; padding-left: 6px;">' + escapeHtml(note.text) + '<div class="idea-meta">' + note.time + '</div></div>' + 
+      '<div class="idea-actions"><button class="idea-action-btn del" onclick="deleteGeneralNote(\'' + note.id + '\')">Delete</button></div>';
+      list.appendChild(li);
+    });
+  }
+}
+
 function submitGeneralNotes() {
-  const el = document.getElementById('general-notes');
+  const input = document.getElementById('general-notes-input');
+  const text = input.value.trim();
+  if (!text) return;
+
   const s = loadState();
-  if (!s.areas) s.areas = {};
-  s.areas['general-notes'] = el.value;
+  if (!s.generalNotesList) s.generalNotesList = [];
+  
+  s.generalNotesList.push({
+    id: uid(),
+    text: text,
+    time: now()
+  });
+  
   saveState(s);
-  const btn = document.getElementById('general-notes-btn');
-  btn.textContent = 'Saved!';
-  setTimeout(() => btn.textContent = 'Submit Note', 2000);
-  el.blur();
+  input.value = '';
+  renderGeneralNotes();
+}
+
+function deleteGeneralNote(id) {
+  const s = loadState();
+  if (!s.generalNotesList) return;
+  s.generalNotesList = s.generalNotesList.filter(n => n.id !== id);
+  saveState(s);
+  renderGeneralNotes();
 }
 
 // ============ SMOOTH SCROLL NAV ============
@@ -3434,6 +3481,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTextAreas();
   initTabs();
   renderChat();
+  renderGeneralNotes();
   renderIdeas();
   renderQueue('ellie');
   renderQueue('ashley');

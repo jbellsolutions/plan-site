@@ -2405,14 +2405,78 @@
 
 <script>
 const STORAGE_KEY = 'beauty-plan-state';
+const KVDB_URL = 'https://kvdb.io/KQTVqLimGBFeLSoGWo6ACx/beauty-plan-state';
+
+let _globalState = {};
+let _isBooting = true;
+
+try {
+  const local = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if (local && typeof local === 'object') _globalState = local;
+} catch(e) {}
 
 function loadState() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-  catch(e) { return {}; }
+  return _globalState;
 }
+
+let saveTimeout;
 function saveState(state) {
+  _globalState = state;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    fetch(KVDB_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state)
+    }).catch(e => console.error("Sync error", e));
+  }, 1000);
 }
+
+async function fetchRemoteState() {
+  try {
+    const res = await fetch(KVDB_URL);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data && typeof data === 'object') {
+      const localStr = JSON.stringify(_globalState);
+      const remoteStr = JSON.stringify(data);
+      
+      if (localStr !== remoteStr) {
+        if (_isBooting && localStr === '{}') {
+          // If we had no local state on boot, silently load the remote state
+          _globalState = data;
+          localStorage.setItem(STORAGE_KEY, remoteStr);
+          location.reload();
+        } else if (!_isBooting) {
+          // If state changed while we are using it, show banner
+          showSyncBanner(data);
+        }
+      }
+    }
+  } catch(e) {}
+  _isBooting = false;
+}
+
+function showSyncBanner(newData) {
+  if (document.getElementById('sync-banner')) return;
+  const banner = document.createElement('div');
+  banner.id = 'sync-banner';
+  banner.style.cssText = "position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg, #c9a0dc, #f7c6d0); color:#0a0a0a; padding:12px 24px; border-radius:30px; font-weight:700; font-size:14px; cursor:pointer; z-index:9999; box-shadow:0 4px 20px rgba(0,0,0,0.5); transition:transform 0.2s; font-family:'Inter', sans-serif;";
+  banner.innerHTML = "✨ New updates from team! Click to sync ✨";
+  banner.onmouseover = () => banner.style.transform = "translateX(-50%) scale(1.05)";
+  banner.onmouseout = () => banner.style.transform = "translateX(-50%) scale(1)";
+  banner.onclick = () => {
+    _globalState = newData;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+    location.reload();
+  };
+  document.body.appendChild(banner);
+}
+
+fetchRemoteState();
+setInterval(fetchRemoteState, 5000);
 function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 function now() {
   const d = new Date();

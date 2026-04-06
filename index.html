@@ -2387,8 +2387,11 @@
 
     <div class="card" style="margin-top:20px;">
       <h3 class="blue">Notes &amp; Ideas</h3>
-      <p style="font-size:13px; color:#666; margin-bottom:4px;">Jot down anything &mdash; saves automatically.</p>
+      <p style="font-size:13px; color:#666; margin-bottom:4px;">Jot down anything, click save to submit.</p>
       <textarea class="notes-area" id="general-notes" placeholder="Drop notes, ideas, questions here..."></textarea>
+      <div style="text-align: right; margin-top: 8px;">
+        <button class="chat-send" id="general-notes-btn" onclick="submitGeneralNotes()" style="padding: 6px 16px; border: 1px solid #333; background: #0e0e0e; color: #a0befd; border-radius: 6px; cursor: pointer;">Submit Note</button>
+      </div>
     </div>
   </div>
 
@@ -2533,6 +2536,30 @@ function initChecklists() {
       }, 400);
     });
     noteArea.appendChild(noteInput);
+
+    const saveBtn = document.createElement('button');
+    saveBtn.className = 'chat-send';
+    saveBtn.style.cssText = 'padding: 4px 12px; font-size: 11px; margin-top: 6px; float: right; border-radius: 4px; border: 1px solid #333; background: #0a0a0a; color: #a0befd; cursor: pointer;';
+    saveBtn.textContent = 'Submit Note';
+    saveBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const s = loadState();
+      if (!s.itemNotes) s.itemNotes = {};
+      s.itemNotes[id] = noteInput.value;
+      saveState(s);
+      noteBtn.textContent = noteInput.value ? 'notes' : '+ note';
+      noteBtn.classList.toggle('has-note', !!noteInput.value);
+      saveBtn.textContent = 'Saved!';
+      setTimeout(() => {
+         saveBtn.textContent = 'Submit Note';
+         noteArea.classList.remove('open');
+      }, 800);
+    });
+    noteArea.appendChild(saveBtn);
+    const clearFix = document.createElement('div');
+    clearFix.style.clear = 'both';
+    noteArea.appendChild(clearFix);
+
     li.appendChild(noteArea);
 
     if (checks[id]) li.classList.add('checked');
@@ -3377,6 +3404,18 @@ function resetAll() {
     localStorage.removeItem(STORAGE_KEY);
     location.reload();
   }
+}
+
+function submitGeneralNotes() {
+  const el = document.getElementById('general-notes');
+  const s = loadState();
+  if (!s.areas) s.areas = {};
+  s.areas['general-notes'] = el.value;
+  saveState(s);
+  const btn = document.getElementById('general-notes-btn');
+  btn.textContent = 'Saved!';
+  setTimeout(() => btn.textContent = 'Submit Note', 2000);
+  el.blur();
 }
 
 // ============ SMOOTH SCROLL NAV ============
